@@ -10,6 +10,9 @@
   },
   "author": "fscherwi",
   "license": "MIT",
+  "keywords": [
+    "tinkerforge"
+  ],
   "bugs": {
     "url": "https://github.com/fscherwi/tf-conected/issues"
   },
