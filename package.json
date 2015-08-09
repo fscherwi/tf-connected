@@ -6,7 +6,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/fscherwi/tf-conected"
+    "url": "git+https://github.com/fscherwi/tf-conected"
   },
   "author": "fscherwi",
   "license": "MIT",
