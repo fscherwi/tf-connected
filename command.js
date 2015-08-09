@@ -5,8 +5,8 @@ var program = require('commander');
 program
   .version('1.0.0')
   .usage('[options] <list/advanced>')
-  .option('-h, --host [host]', 'The HOST, default to "localhost"', host)
-  .option('-p, --port [port]', 'The PORT, default to "4223"', port)
+  .option('-h, --host [host]', 'The HOST, default to "localhost"')
+  .option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
   .parse(process.argv);
 
 if (!program.args.length) {
