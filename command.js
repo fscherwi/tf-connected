@@ -8,7 +8,7 @@ var PORT;
 var Tinkerforge;
 
 program
-  .version('0.0.1')
+  .version('1.0.0')
   .usage('[options] <list/advanced>')
   .option('-h, --host [host]', 'The HOST, default to "localhost"', parseInt)
   .option('-p, --port [port]', 'The PORT, default to "4223"')
