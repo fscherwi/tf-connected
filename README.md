@@ -1,7 +1,7 @@
 # tf-connected
 [![Build Status](https://travis-ci.org/fscherwi/tf-connected.svg)](https://travis-ci.org/fscherwi/tf-connected) [![David](https://david-dm.org/fscherwi/tf-connected.svg)](https://david-dm.org/fscherwi/tf-connected) [![Code Climate](https://codeclimate.com/github/fscherwi/tf-connected/badges/gpa.svg)](https://codeclimate.com/github/fscherwi/tf-connected)
 
-## A Utility to show connected Bricks/Bricklets!
+## With this Utility you can  easily show connected Bricks/Bricklets and informations about that!
 # install
 
 ```bash
