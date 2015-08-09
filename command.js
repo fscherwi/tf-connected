@@ -2,32 +2,27 @@
 
 var program = require('commander');
 
-var HOST;
-var PORT;
-
-var Tinkerforge;
-
 program
   .version('1.0.0')
   .usage('[options] <list/advanced>')
-  .option('-h, --host [host]', 'The HOST, default to "localhost"', parseInt)
-  .option('-p, --port [port]', 'The PORT, default to "4223"')
+  .option('-h, --host [host]', 'The HOST, default to "localhost"', host)
+  .option('-p, --port [port]', 'The PORT, default to "4223"', port)
   .parse(process.argv);
 
 if (!program.args.length) {
   program.help();
 } else {
-  Tinkerforge = require('tinkerforge');
+  var Tinkerforge = require('tinkerforge');
 
   if (program.host) {
-    HOST = program.host;
+    var HOST = program.host;
   } else {
-    HOST = "localhost";
+    var HOST = "localhost";
   }
   if (program.port) {
-    PORT = program.port;
+    var PORT = program.port;
   } else {
-    PORT = 4223;
+    var PORT = 4223;
   }
 
   var ipcon = new Tinkerforge.IPConnection();
@@ -52,7 +47,7 @@ if (!program.args.length) {
         console.log('Error: UNKNOWN ERROR');
       }
 
-      process.exit(0);
+      process.exit();
     }
   );
 
