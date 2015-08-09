@@ -1,9 +1,11 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    // default
+
     pkg: grunt.file.readJSON('package.json'),
     jsbeautifier: {
-      files: ["*.js", "!*.min.js"],
+      files: ["*.js", "*.json", "!*.min.js"],
       options: {
         js: {
           indentSize: 2
@@ -26,12 +28,24 @@ module.exports = function(grunt) {
           ext: '.min.js'
         }]
       }
+    },
+    shell: {
+      options: {
+        stderr: false
+      },
+      target: {
+        command: 'istanbul cover command.js'
+      }
     }
 
   });
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-shell');
 
-  grunt.registerTask('default', ['jsbeautifier', 'clean', 'uglify']);
+  grunt.registerTask('default', ['jsbeautifier']);
+  grunt.registerTask('cover', ['jsbeautifier', 'shell']);
+  grunt.registerTask('min', ['clean', 'uglify']);
+
 };

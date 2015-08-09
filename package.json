@@ -1,5 +1,5 @@
 {
-  "name": "tf-conected",
+  "name": "tf-connected",
   "version": "1.0.0",
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "command.js",
@@ -27,6 +27,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-jsbeautifier": "^0.2.10",
+    "grunt-shell": "^1.1.2",
     "istanbul": "^0.3.17"
   },
   "bin": {
