@@ -5,9 +5,7 @@
 # Install
 You may require sudo!
 
-```bash
- $ npm install tf-connected -g
-```
+[![NPM](https://nodei.co/npm/tf-connected.png?mini=true)](https://nodei.co/npm/tf-connected/)
 
 # Usage
 ### Simple list connected Bricks/Bricklets
