@@ -17,18 +17,17 @@ if (!program.args.length) {
 
   if (program.host) {
     var HOST = program.host;
-    console.log('Used HOST: ' + HOST);
   } else {
     var HOST = "localhost";
-    console.log('Used HOST: ' + HOST);
   }
   if (program.port) {
     var PORT = program.port;
-    console.log('Used PORT: ' + PORT);
   } else {
     var PORT = 4223;
-    console.log('Used PORT: ' + PORT);
   }
+
+  console.log('Used HOST: ' + HOST);
+  console.log('Used PORT: ' + PORT);
 
   var ipcon = new Tinkerforge.IPConnection();
 
