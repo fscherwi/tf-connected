@@ -29,6 +29,8 @@ if (!program.args.length) {
   console.log('Used HOST: ' + HOST);
   console.log('Used PORT: ' + PORT);
 
+  console.log('');
+
   var ipcon = new Tinkerforge.IPConnection();
 
   ipcon.connect(HOST, PORT,
@@ -187,5 +189,12 @@ if (!program.args.length) {
 
       console.log(' ');
     });
+
+  process.stdin.on('data',
+    function(data) {
+      ipcon.disconnect();
+      process.exit(0);
+    }
+  );
 
 }
