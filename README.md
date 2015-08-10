@@ -27,11 +27,11 @@ You may require sudo!
 ### Custom HOST
 
 ```bash
- $ tf-connected <your-option> -h <your-host>
+ $ tf-connected list -h <your-host>
 ```
 
 ### Custom PORT
 
 ```bash
- $ tf-connected <your-option> -p <your-port>
+ $ tf-connected list -p <your-port>
 ```
