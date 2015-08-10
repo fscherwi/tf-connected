@@ -5,7 +5,8 @@ var pjson = require('./package.json');
 
 program
   .version(pjson.version)
-  .usage('[options] <list/advanced>')
+  .usage('[options] list')
+  .option('-a, --advanced', 'Shows advanced information')
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
   .option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
   .parse(process.argv);
@@ -64,7 +65,7 @@ if (!program.args.length) {
   );
 
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
+    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
 
       // BRICK'S
       if (deviceIdentifier === Tinkerforge.BrickDC.DEVICE_IDENTIFIER) {
@@ -168,13 +169,35 @@ if (!program.args.length) {
         console.log('NAME: ' + Tinkerforge.BrickletVoltage.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER) {
         console.log('NAME: ' + Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME);
+      }
+      // new Bricklets
+      else if (deviceIdentifier === Tinkerforge.BrickletAccelerometer.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletAccelerometer.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletAmbientLightV2.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletAmbientLightV2.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletAnalogInV2.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogInV2.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletAnalogOutV2.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogOutV2.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletDustDetector.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletDustDetector.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialAnalogIn.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialAnalogIn.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletLaserRangeFinder.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletLaserRangeFinder.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletLoadCell.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletLoadCell.DEVICE_DISPLAY_NAME);
+      } else if (deviceIdentifier === Tinkerforge.BrickletRS232.DEVICE_IDENTIFIER) {
+        console.log('NAME: ' + Tinkerforge.BrickletRS232.DEVICE_DISPLAY_NAME);
       } else {
         console.log('NAME: unknown');
       }
 
       console.log('UID : ' + uid);
 
-      if (program.args === "advanced") {
+      if (program.advanced) {
         console.log('Enumeration Type:  ' + enumerationType);
         if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
           console.log('');

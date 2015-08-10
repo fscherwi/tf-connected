@@ -17,14 +17,13 @@ You may require sudo!
 ```bash
  $ tf-connected list
 ```
-
+# Advanced functions
 ### Show advanced informations about connected Bricks/Bricklets
 
 ```bash
- $ tf-connected advanced
+ $ tf-connected list -a
 ```
 
-# Advanced functions
 ### Custom HOST
 
 ```bash
