@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/fscherwi/tf-connected/issues"
   },
-  "homepage": "https://github.com/fscherwi/tf-conected#readme",
+  "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "commander": "^2.8.1",
     "tinkerforge": "latest"
