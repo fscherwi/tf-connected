@@ -15,7 +15,7 @@ install:
 
 script:
   - ./command.js
-  - tf-commander
+  - tf-connected
 
 after_success:
   - ./node_modules/.bin/istanbul cover command.js
