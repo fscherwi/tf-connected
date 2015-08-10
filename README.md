@@ -17,7 +17,7 @@ You may require sudo!
 ```bash
  $ tf-connected list
 ```
-# Advanced functions
+## Advanced functions
 ### Show advanced informations about connected Bricks/Bricklets
 
 ```bash
