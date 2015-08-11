@@ -121,8 +121,6 @@ if (!program.args.length) {
         console.log('NAME: ' + Tinkerforge.BrickletHumidity.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_IDENTIFIER) {
         console.log('NAME: ' + Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_DISPLAY_NAME);
-      } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialAnalogIn.DEVICE_IDENTIFIER) {
-        console.log('NAME: ' + Tinkerforge.BrickletIndustrialAnalogIn.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialDigitalIn4.DEVICE_IDENTIFIER) {
         console.log('NAME: ' + Tinkerforge.BrickletIndustrialDigitalIn4.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialDigitalOut4.DEVICE_IDENTIFIER) {
