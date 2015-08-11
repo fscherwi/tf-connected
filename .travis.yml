@@ -18,10 +18,6 @@ script:
   - ./command.js
   - tf-connected
 
-after_success:
-  - ./node_modules/.bin/istanbul cover command.js
-  - ./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info
-
 matrix:
   ollow_failures:
     - node_js: "0.10"
