@@ -4,8 +4,6 @@ node_js:
   - "0.11"
   - "0.10"
   - "iojs"
-  - "iojs-v1.8.4"
-  - "iojs-v2.5.0"
 
 before_install:
   - npm install -g npm
@@ -15,5 +13,5 @@ install:
   - npm install -g
 
 script:
-  - ./command.js
   - tf-connected
+  - tf-connected list
