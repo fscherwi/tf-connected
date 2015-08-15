@@ -27,6 +27,11 @@ if (!program.args.length) {
     var PORT = 4223;
   }
 
+  console.log('Used HOST: ' + HOST);
+  console.log('Used PORT: ' + PORT);
+
+  console.log('');
+
   var ipcon = new Tinkerforge.IPConnection();
 
   ipcon.connect(HOST, PORT,
@@ -52,11 +57,6 @@ if (!program.args.length) {
       process.exit();
     }
   );
-
-  console.log('Used HOST: ' + HOST);
-  console.log('Used PORT: ' + PORT);
-
-  console.log('');
 
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function(connectReason) {
