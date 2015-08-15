@@ -17,10 +17,3 @@ install:
 script:
   - ./command.js
   - tf-connected
-
-matrix:
-  ollow_failures:
-    - node_js: "0.10"
-    - node_js: "0.11"
-    - node_js: "iojs-v1.8.4"
-    - node_js: "iojs-v2.5.0"

@@ -7,32 +7,32 @@
 # Install
 You may require sudo!
 
-```
+```sh
  $ npm install -g tf-connected
 ```
 
 # Usage
 ## Simple list connected Bricks/Bricklets
 
-```
+```sh
  $ tf-connected list
 ```
 
 ## Advanced functions
 ### Show advanced informations about connected Bricks/Bricklets
 
-```
+```sh
  $ tf-connected list -a
 ```
 
 ### Custom HOST
 
-```
+```sh
  $ tf-connected list -h <your-host>
 ```
 
 ### Custom PORT
 
-```
+```sh
  $ tf-connected list -p <your-port>
 ```
