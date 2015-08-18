@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var pjson = require('./package.json');
 
 program
-  .version(pjson.version)
+  .version(require('./package.json').version)
   .usage('[options] list')
   .option('-a, --advanced', 'Shows advanced information')
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
