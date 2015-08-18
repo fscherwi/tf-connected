@@ -53,7 +53,7 @@ if (!program.args.length) {
         console.log('Error: UNKNOWN ERROR');
       }
 
-      process.exit(0);
+      process.exit();
     }
   );
 
@@ -68,124 +68,124 @@ if (!program.args.length) {
 
       // BRICK'S
       if (deviceIdentifier === Tinkerforge.BrickDC.DEVICE_IDENTIFIER) {
-        console.log('NAME: Brick DC');
+        console.log('NAME: ' + Tinkerforge.BrickDC.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickIMU.DEVICE_IDENTIFIER) {
-        console.log('NAME: Brick IMU');
+        console.log('NAME: ' + Tinkerforge.BrickIMU.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickMaster.DEVICE_IDENTIFIER) {
-        console.log('NAME: Brick Master');
+        console.log('NAME: ' + Tinkerforge.BrickMaster.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickServo.DEVICE_IDENTIFIER) {
-        console.log('NAME: Brick Servo');
+        console.log('NAME: ' + Tinkerforge.BrickServo.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickStepper.DEVICE_IDENTIFIER) {
-        console.log('NAME: Brick Stepper');
+        console.log('NAME: ' + Tinkerforge.BrickStepper.DEVICE_DISPLAY_NAME);
       }
 
       // BRICKLET'S
       else if (deviceIdentifier === Tinkerforge.BrickletAccelerometer.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Accelerometer');
+        console.log('NAME: ' + Tinkerforge.BrickletAccelerometer.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAmbientLight.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Ambient Light');
+        console.log('NAME: ' + Tinkerforge.BrickletAmbientLight.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAmbientLightV2.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Ambient Light V2');
+        console.log('NAME: ' + Tinkerforge.BrickletAmbientLightV2.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAnalogIn.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Analog In');
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogIn.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAnalogInV2.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Analog In V2');
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogInV2.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAnalogOut.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Analog Out');
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogOut.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletAnalogOutV2.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Analog Out V2');
+        console.log('NAME: ' + Tinkerforge.BrickletAnalogOutV2.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletBarometer.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Barometer');
+        console.log('NAME: ' + Tinkerforge.BrickletBarometer.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletColor.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Color');
+        console.log('NAME: ' + Tinkerforge.BrickletColor.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletCurrent12.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Current 12');
+        console.log('NAME: ' + Tinkerforge.BrickletCurrent12.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletCurrent25.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Current 25');
+        console.log('NAME: ' + Tinkerforge.BrickletCurrent25.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletDistanceIR.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Distance IR');
+        console.log('NAME: ' + Tinkerforge.BrickletDistanceIR.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletDistanceUS.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Distance US');
+        console.log('NAME: ' + Tinkerforge.BrickletDistanceUS.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletDualButton.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Dual Button');
+        console.log('NAME: ' + Tinkerforge.BrickletDualButton.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletDualRelay.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Dual Relay');
+        console.log('NAME: ' + Tinkerforge.BrickletDualRelay.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletDustDetector.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Dust Detector');
+        console.log('NAME: ' + Tinkerforge.BrickletDustDetector.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletGPS.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet GPS');
+        console.log('NAME: ' + Tinkerforge.BrickletGPS.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletHallEffect.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Hall Effect');
+        console.log('NAME: ' + Tinkerforge.BrickletHallEffect.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletHumidity.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Humidity');
+        console.log('NAME: ' + Tinkerforge.BrickletHumidity.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Industrial Analog Out');
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialAnalogOut.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialDigitalIn4.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Industrial Digital In 4');
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialDigitalIn4.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialDigitalOut4.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Industrial Digital Out 4');
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialDigitalOut4.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialDual020mA.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Industrial Dual 20mA');
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialDual020mA.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIndustrialQuadRelay.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Industrial Quad Relay');
+        console.log('NAME: ' + Tinkerforge.BrickletIndustrialQuadRelay.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIO16.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet IO16');
+        console.log('NAME: ' + Tinkerforge.BrickletIO16.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletIO4.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet IO4');
+        console.log('NAME: ' + Tinkerforge.BrickletIO4.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletJoystick.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Joystick');
+        console.log('NAME: ' + Tinkerforge.BrickletJoystick.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLaserRangeFinder.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Laser Range Finder');
+        console.log('NAME: ' + Tinkerforge.BrickletLaserRangeFinder.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLCD16x2.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet LCD16x2');
+        console.log('NAME: ' + Tinkerforge.BrickletLCD16x2.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLCD20x4.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet LCD20x4');
+        console.log('NAME: ' + Tinkerforge.BrickletLCD20x4.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLEDStrip.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet LED Strip');
+        console.log('NAME: ' + Tinkerforge.BrickletLEDStrip.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLine.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Line');
+        console.log('NAME: ' + Tinkerforge.BrickletLine.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLinearPoti.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Linear Poti');
+        console.log('NAME: ' + Tinkerforge.BrickletLinearPoti.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletLoadCell.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Load Cell');
+        console.log('NAME: ' + Tinkerforge.BrickletLoadCell.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletMoisture.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Moisture');
+        console.log('NAME: ' + Tinkerforge.BrickletMoisture.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletMotionDetector.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Motion Detector');
+        console.log('NAME: ' + Tinkerforge.BrickletMotionDetector.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletMultiTouch.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Multi Touch');
+        console.log('NAME: ' + Tinkerforge.BrickletMultiTouch.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletNFCRFID.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet NFCRF ID');
+        console.log('NAME: ' + Tinkerforge.BrickletNFCRFID.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletPiezoBuzzer.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Piezo Buzzer');
+        console.log('NAME: ' + Tinkerforge.BrickletPiezoBuzzer.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletPiezoSpeaker.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Piezo Speaker');
+        console.log('NAME: ' + Tinkerforge.BrickletPiezoSpeaker.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletPTC.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet PTC');
+        console.log('NAME: ' + Tinkerforge.BrickletPTC.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletRemoteSwitch.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Remote Switch');
+        console.log('NAME: ' + Tinkerforge.BrickletRemoteSwitch.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletRotaryEncoder.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Rotary Encoder');
+        console.log('NAME: ' + Tinkerforge.BrickletRotaryEncoder.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletRotaryPoti.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Rotary Poti');
+        console.log('NAME: ' + Tinkerforge.BrickletRotaryPoti.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletRS232.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet RS 232');
+        console.log('NAME: ' + Tinkerforge.BrickletRS232.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletSegmentDisplay4x7.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Segment Display 4x7');
+        console.log('NAME: ' + Tinkerforge.BrickletSegmentDisplay4x7.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletSolidStateRelay.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Solid State Relay');
+        console.log('NAME: ' + Tinkerforge.BrickletSolidStateRelay.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletSoundIntensity.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Sound Intensity');
+        console.log('NAME: ' + Tinkerforge.BrickletSoundIntensity.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletTemperature.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Temperature');
+        console.log('NAME: ' + Tinkerforge.BrickletTemperature.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletTemperatureIR.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Temperature IR');
+        console.log('NAME: ' + Tinkerforge.BrickletTemperatureIR.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletTilt.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Tilt');
+        console.log('NAME: ' + Tinkerforge.BrickletTilt.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletVoltage.DEVICE_IDENTIFIER) {
-        console.log('NAME: Bricklet Voltage');
+        console.log('NAME: ' + Tinkerforge.BrickletVoltage.DEVICE_DISPLAY_NAME);
       } else if (deviceIdentifier === Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER) {
-        console.log('NAME: .Bricklet Voltage Current');
+        console.log('NAME: ' + Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME);
       } else {
         console.log('NAME: unknown');
       }
