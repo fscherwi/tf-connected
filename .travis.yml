@@ -9,7 +9,6 @@ before_install:
   - npm install -g npm
 
 install:
-  - npm install
   - npm install -g
 
 script:
