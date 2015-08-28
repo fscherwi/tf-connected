@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var connected = require('./connected.js');
 
 program
   .version(require('./package.json').version)
@@ -13,5 +14,5 @@ program
 if (!program.args.length) {
   program.help();
 } else {
-  require('./connected.js');
+  connected.get();
 }
