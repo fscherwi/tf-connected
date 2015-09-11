@@ -3,7 +3,9 @@
   "version": "1.0.6",
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "command.js",
-  "scripts": {},
+  "scripts": {
+    "cover": "node ./node_modules/.bin/istanbul --include-all-sources cover command.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/fscherwi/tf-connected.git"
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "commander": "^2.8.1",
+    "grunt-text-replace": "^0.4.0",
     "tinkerforge": "latest"
   },
   "devDependencies": {
@@ -26,7 +29,9 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-jsbeautifier": "^0.2.10",
-    "grunt-shell": "^1.1.2"
+    "grunt-shell": "^1.1.2",
+    "grunt-text-replace": "^0.4.0",
+    "istanbul": "^0.3.19"
   },
   "preferGlobal": true,
   "bin": {
