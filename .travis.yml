@@ -10,7 +10,7 @@ before_install:
 
 install:
   - npm install -g
-  - npm install coveralls
+  - npm install istanbul coveralls
 
 script:
   - tf-connected
