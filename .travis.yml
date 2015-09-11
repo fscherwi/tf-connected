@@ -6,6 +6,7 @@ node_js:
   - "iojs"
 
 install:
+  - npm install
   - npm install -g
   - npm install istanbul coveralls
 
