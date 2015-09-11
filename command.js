@@ -12,7 +12,7 @@ program
   .parse(process.argv);
 
 if (!program.args.length) {
-  program.help();
-} else {
   connected.get();
+} else {
+  program.help();
 }
