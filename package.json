@@ -21,7 +21,6 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "commander": "^2.8.1",
-    "grunt-text-replace": "^0.4.0",
     "tinkerforge": "latest"
   },
   "devDependencies": {
