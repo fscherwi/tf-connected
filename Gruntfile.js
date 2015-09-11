@@ -2,8 +2,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    // default
-
     pkg: grunt.file.readJSON('package.json'),
     jsbeautifier: {
       files: ["*.js", "*.json", "!*.min.js"],
@@ -13,20 +11,17 @@ module.exports = function(grunt) {
         }
       }
     },
-    clean: {
-      js: ["./*.min.js", "!./*.js"]
-    },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd.mm.yyyy") %> © <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n '
+        banner: '/*! <%= pkg.name %> ©<%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n '
       },
       build: {
         files: [{
           expand: true,
           cwd: './',
-          src: ['*.js', '!Gruntfile.js', '!command.js'],
+          src: ['*.js', '!Gruntfile.js', '!**/node_modules/**'],
           dest: './',
-          ext: '.min.js'
+          ext: '.js'
         }]
       }
     },
@@ -38,7 +33,15 @@ module.exports = function(grunt) {
           from: '/* istanbul ignore next */',
           to: ''
         }]
-      }
+      },
+      min: {
+        src: ['command.js'],
+        overwrite: true,
+        replacements: [{
+          from: '#!/usr/bin/env node',
+          to: ''
+        }]
+      },
     },
     shell: {
       new_folder: {
@@ -47,11 +50,23 @@ module.exports = function(grunt) {
       copy: {
         command: 'cp *.js ./coverage_files'
       },
+      move_1: {
+        command: 'cp ./coverage_files/command.js ./coverage_files/command_1.js'
+      },
       replace_coverage: {
-        command: 'grunt replace_coverage_config'
+        command: 'grunt replace:coverage'
+      },
+      prepare_min: {
+        command: 'grunt replace:min'
+      },
+      minify: {
+        command: 'grunt min'
       },
       publish: {
         command: 'npm publish'
+      },
+      move_2: {
+        command: 'cp ./coverage_files/command_1.js ./coverage_files/command.js'
       },
       move_back: {
         command: 'mv ./coverage_files/*.js ./'
@@ -63,15 +78,12 @@ module.exports = function(grunt) {
 
   });
   grunt.loadNpmTasks("grunt-jsbeautifier");
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-text-replace');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jsbeautifier']);
   grunt.registerTask('cover', ['jsbeautifier']);
-  grunt.registerTask('min', ['clean', 'uglify']);
-  grunt.registerTask('replace_coverage_config', ['replace']);
   grunt.registerTask('publish', ['shell']);
 
 };
