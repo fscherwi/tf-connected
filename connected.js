@@ -16,7 +16,7 @@ console.log('Used HOST: ' + HOST);
 console.log('Used PORT: ' + PORT);
 
 console.log('');
-
+/* istanbul ignore next */
 function tfinit() {
   ipcon = new Tinkerforge.IPConnection();
 
