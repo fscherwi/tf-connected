@@ -50,7 +50,7 @@ function tfinit() {
     }
   );
 }
-
+/* istanbul ignore next */
 function tfget() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {

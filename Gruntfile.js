@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 module.exports = function(grunt) {
 
   grunt.initConfig({

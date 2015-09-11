@@ -5,12 +5,15 @@ node_js:
   - "0.10"
   - "iojs"
 
-before_install:
-  - npm install -g npm
-
 install:
+  - npm install
   - npm install -g
+  - npm install istanbul coveralls
 
 script:
   - tf-connected
   - tf-connected list
+  
+after_script:
+  - node ./node_modules/.bin/istanbul --include-all-sources cover command.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
