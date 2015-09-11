@@ -29,3 +29,4 @@ node_modules
 # Travis CI and Grunt
 .travis.yml
 Gruntfile.js
+.bithoundrc
