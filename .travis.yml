@@ -10,7 +10,12 @@ before_install:
 
 install:
   - npm install -g
+  - npm install coveralls
 
 script:
   - tf-connected
   - tf-connected list
+  
+after_script:
+  - node ./node_modules/.bin/istanbul --include-all-sources cover test.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
