@@ -5,7 +5,7 @@ var connected = require('./connected.js');
 
 program
   .version(require('./package.json').version)
-  .usage('[options] list')
+  .usage('[options]')
   .option('-a, --advanced', 'Shows advanced information')
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
   .option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
