@@ -34,10 +34,10 @@ module.exports = function(grunt) {
         command: 'cp *.js ./coverage_files'
       },
       minify: {
-        command: 'grunt min'
+        command: 'grunt uglify'
       },
       add_readme: {
-        command: 'mv ./README.md ./coverage_files/README.md'
+        command: 'cp ./README.md ./coverage_files/README.md'
       },
       publish: {
         command: 'npm publish'
