@@ -1,6 +1,8 @@
 var program = require('commander');
 var Tinkerforge = require('tinkerforge');
 
+var ipcon;
+
 if (program.host) {
   var HOST = program.host;
 } else {
