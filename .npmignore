@@ -30,4 +30,3 @@ node_modules
 .travis.yml
 Gruntfile.js
 .bithoundrc
-command_1.js

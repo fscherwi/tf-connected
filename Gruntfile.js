@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: './',
-          src: ['*.js', '!Gruntfile.js', '!**/node_modules/**'],
+          src: ['*.js', '!Gruntfile.js', '!**/node_modules/**', '!command.js'],
           dest: './',
           ext: '.js'
         }]
@@ -33,15 +33,7 @@ module.exports = function(grunt) {
           from: '/* istanbul ignore next */',
           to: ''
         }]
-      },
-      min: {
-        src: ['command.js'],
-        overwrite: true,
-        replacements: [{
-          from: '#!/usr/bin/env node',
-          to: ''
-        }]
-      },
+      }
     },
     shell: {
       new_folder: {
@@ -50,14 +42,8 @@ module.exports = function(grunt) {
       copy: {
         command: 'cp *.js ./coverage_files'
       },
-      move_1: {
-        command: 'cp ./coverage_files/command.js ./coverage_files/command_1.js'
-      },
       replace_coverage: {
         command: 'grunt replace:coverage'
-      },
-      prepare_min: {
-        command: 'grunt replace:min'
       },
       minify: {
         command: 'grunt min'
@@ -67,9 +53,6 @@ module.exports = function(grunt) {
       },
       publish: {
         command: 'npm publish'
-      },
-      move_2: {
-        command: 'cp ./coverage_files/command_1.js ./coverage_files/command.js'
       },
       move_back: {
         command: 'mv ./coverage_files/*.js ./'
