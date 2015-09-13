@@ -16,37 +16,40 @@ module.exports = function(grunt) {
         removeComments: true,
         banner: '/*! <%= pkg.name %> ©<%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n '
       },
-      build: {
+      puplish: {
         files: [{
           expand: true,
           cwd: './',
           src: ['*.js', '!Gruntfile.js', '!**/node_modules/**', '!command.js'],
-          dest: './',
+          dest: './publish_files',
           ext: '.js'
         }]
       }
     },
     shell: {
       new_folder: {
-        command: 'mkdir coverage_files'
+        command: 'mkdir publish_files'
       },
       copy: {
-        command: 'cp *.js ./coverage_files'
+        command: 'cp command.js ./publish_files/command.js'
       },
       minify: {
-        command: 'grunt uglify'
+        command: 'grunt uglify:puplish'
       },
       add_readme: {
-        command: 'cp ./README.md ./coverage_files/README.md'
+        command: 'cp ./README.md ./publish_files/README.md'
+      },
+      cd: {
+        command: 'cd ./publish_files'
       },
       publish: {
         command: 'npm publish'
       },
-      move_back: {
-        command: 'mv ./coverage_files/*.js ./'
+      cd_back: {
+        command: 'cd ..'
       },
       remove_folder: {
-        command: 'rm -rf coverage_files'
+        command: 'rm -rf publish_files'
       }
     }
 
@@ -56,7 +59,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jsbeautifier']);
-  grunt.registerTask('cover', ['jsbeautifier']);
   grunt.registerTask('publish', ['shell']);
 
 };
