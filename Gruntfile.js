@@ -27,29 +27,17 @@ module.exports = function(grunt) {
       }
     },
     shell: {
-      new_folder: {
-        command: 'mkdir publish_files'
-      },
-      copy: {
-        command: 'cp command.js ./publish_files/command.js'
-      },
-      minify: {
-        command: 'grunt uglify:puplish'
-      },
-      add_readme: {
-        command: 'cp ./README.md ./publish_files/README.md'
-      },
-      cd: {
-        command: 'cd ./publish_files'
-      },
       publish: {
-        command: 'npm publish'
-      },
-      cd_back: {
-        command: 'cd ..'
-      },
-      remove_folder: {
-        command: 'rm -rf publish_files'
+        command: [
+          'mkdir publish_files',
+          'cp command.js ./publish_files/command.js',
+          'cp ./README.md ./publish_files/README.md',
+          'grunt uglify:puplish',
+          'cd ./publish_files',
+          'npm publish',
+          'cd ..',
+          'rm -rf publish_files'
+        ].join('&&')
       }
     }
 
@@ -59,6 +47,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jsbeautifier']);
-  grunt.registerTask('publish', ['shell']);
+  grunt.registerTask('publish', ['shell:publish']);
 
 };
