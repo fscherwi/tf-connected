@@ -1,6 +1,6 @@
 {
   "name": "tf-connected",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "command.js",
   "scripts": {},
