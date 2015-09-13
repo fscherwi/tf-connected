@@ -13,6 +13,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
+        removeComments: true,
         banner: '/*! <%= pkg.name %> ©<%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n '
       },
       build: {
@@ -25,25 +26,12 @@ module.exports = function(grunt) {
         }]
       }
     },
-    replace: {
-      coverage: {
-        src: ['*.js', '!Gruntfile.js'],
-        overwrite: true,
-        replacements: [{
-          from: '/* istanbul ignore next */',
-          to: ''
-        }]
-      }
-    },
     shell: {
       new_folder: {
         command: 'mkdir coverage_files'
       },
       copy: {
         command: 'cp *.js ./coverage_files'
-      },
-      replace_coverage: {
-        command: 'grunt replace:coverage'
       },
       minify: {
         command: 'grunt min'
@@ -65,7 +53,6 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-text-replace');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jsbeautifier']);
