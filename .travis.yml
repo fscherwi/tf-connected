@@ -17,4 +17,4 @@ script:
 after_script:
   - node ./node_modules/.bin/istanbul --include-all-sources cover command.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - ./node_modules/.bin/codeclimate-test-reporter < lcov.info
+  - ./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info
