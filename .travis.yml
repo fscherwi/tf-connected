@@ -8,7 +8,7 @@ node_js:
 install:
   - npm install
   - npm install -g
-  - npm install istanbul coveralls
+  - npm install istanbul coveralls codeclimate-test-reporter
 
 script:
   - tf-connected
@@ -17,3 +17,4 @@ script:
 after_script:
   - node ./node_modules/.bin/istanbul --include-all-sources cover command.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - ./node_modules/.bin/codeclimate-test-reporter < lcov.info
