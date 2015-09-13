@@ -62,6 +62,9 @@ module.exports = function(grunt) {
       minify: {
         command: 'grunt min'
       },
+      add_readme: {
+        command: 'mv ./README.md ./coverage_files/README.md'
+      },
       publish: {
         command: 'npm publish'
       },
