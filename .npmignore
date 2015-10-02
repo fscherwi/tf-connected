@@ -1,4 +1,4 @@
 .travis.yml
 .bithoundrc
-puplish_files
+cover_files
 Gruntfile.js

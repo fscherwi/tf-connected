@@ -29,14 +29,13 @@ module.exports = function(grunt) {
     shell: {
       publish: {
         command: [
-          'mkdir publish_files',
-          'cp command.js ./publish_files/command.js',
-          'cp ./README.md ./publish_files/README.md',
+          'mkdir cover_files',
+          'cp connected.js ./cover_files/connected.js',
           'grunt uglify:puplish',
-          'cd ./publish_files',
           'npm publish',
-          'cd ..',
-          'rm -rf publish_files'
+          'rm ./connected.js',
+          'mv ./cover_files/connected.js ./connected.js',
+          'rm -rf cover_files'
         ].join('&&')
       }
     }
