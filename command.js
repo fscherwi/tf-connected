@@ -12,7 +12,18 @@ program
   .parse(process.argv);
 
 if (!program.args.length) {
-  connected.get();
+  if (program.host) {
+    var HOST = program.host;
+  } else {
+    var HOST = "localhost";
+  }
+  if (program.port) {
+    var PORT = program.port;
+  } else {
+    var PORT = 4223;
+  }
+
+  connected.get(port=PORT, host=HOST);
 } else {
   program.help();
 }

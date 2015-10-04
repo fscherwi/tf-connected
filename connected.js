@@ -1,21 +1,8 @@
-var program = require('commander');
 var Tinkerforge = require('tinkerforge');
 
 var ipcon;
-
-if (program.host) {
-  var HOST = program.host;
-} else {
-  var HOST = "localhost";
-}
-if (program.port) {
-  var PORT = program.port;
-} else {
-  var PORT = 4223;
-}
-
-console.log('Used HOST: ' + HOST);
-console.log('Used PORT: ' + PORT);
+var PORT;
+var HOST;
 
 console.log('');
 /* istanbul ignore next */
@@ -51,6 +38,9 @@ function tfinit() {
       ipcon.enumerate();
     }
   );
+
+  console.log('Used HOST: ' + HOST);
+  console.log('Used PORT: ' + PORT);
 }
 /* istanbul ignore next */
 function tfget() {
@@ -209,7 +199,9 @@ function exit() {
   );
 }
 
-function get() {
+function get(port, host) {
+  PORT = port;
+  HOST = host;
   tfinit();
   tfget();
   exit();
