@@ -11,23 +11,7 @@ function tfinit() {
 
   ipcon.connect(HOST, PORT,
     function(error) {
-      if (error === 11) {
-        console.log('\nError: ALREADY CONNECTED');
-      } else if (error === 12) {
-        console.log('\nError: NOT CONNECTED');
-      } else if (error === 13) {
-        console.log('\nError: CONNECT FAILED');
-      } else if (error === 21) {
-        console.log('\nError: INVALID FUNCTION ID');
-      } else if (error === 31) {
-        console.log('\nError: TIMEOUT');
-      } else if (error === 41) {
-        console.log('\nError: INVALID PARAMETER');
-      } else if (error === 42) {
-        console.log('\nError: FUNCTION NOT SUPPORTED');
-      } else {
-        console.log('\nError: UNKNOWN ERROR');
-      }
+      console.log('\nError: ' + error+ '\n');
 
       process.exit();
     }
