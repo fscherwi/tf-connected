@@ -11,7 +11,7 @@ function tfinit() {
 
   ipcon.connect(HOST, PORT,
     function(error) {
-      console.log('\nError: ' + error+ '\n');
+      console.log('\nError: ' + error + '\n');
 
       process.exit();
     }
