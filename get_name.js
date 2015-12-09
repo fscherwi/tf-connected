@@ -1,6 +1,5 @@
 /* istanbul ignore next */
 exports.get = function get(deviceIdentifier) {
-
   switch (deviceIdentifier) {
     case Tinkerforge.BrickDC.DEVICE_IDENTIFIER:
       return (Tinkerforge.BrickDC.DEVICE_DISPLAY_NAME);
@@ -12,7 +11,6 @@ exports.get = function get(deviceIdentifier) {
       return (Tinkerforge.BrickServo.DEVICE_DISPLAY_NAME);
     case Tinkerforge.BrickStepper.DEVICE_IDENTIFIER:
       return (Tinkerforge.BrickStepper.DEVICE_DISPLAY_NAME);
-
       // BRICKLET'S
     case Tinkerforge.BrickletAccelerometer.DEVICE_IDENTIFIER:
       return (Tinkerforge.BrickletAccelerometer.DEVICE_DISPLAY_NAME);
@@ -122,6 +120,5 @@ exports.get = function get(deviceIdentifier) {
       return (Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME);
     default:
       return ('NAME: unknown');
-
   }
 };

@@ -1,15 +1,12 @@
 var Tinkerforge = require('tinkerforge');
 var get_name = require('./get_name.js');
-
 var ipcon;
 var PORT;
 var HOST;
-
 console.log('');
 /* istanbul ignore next */
 function tfinit() {
   ipcon = new Tinkerforge.IPConnection();
-
   ipcon.connect(HOST, PORT,
     function(error) {
       switch (error) {
@@ -41,13 +38,11 @@ function tfinit() {
       process.exit();
     }
   );
-
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function(connectReason) {
       ipcon.enumerate();
     }
   );
-
   console.log('Used HOST: ' + HOST);
   console.log('Used PORT: ' + PORT);
 }
@@ -55,10 +50,8 @@ function tfinit() {
 function tfget() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
-
       console.log('NAME: ' + get_name.get(deviceIdentifier));
       console.log('UID : ' + uid);
-
       if (program.advanced) {
         console.log('Enumeration Type:  ' + enumerationType);
         if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
@@ -71,11 +64,10 @@ function tfget() {
         console.log('Firmware Version:  ' + firmwareVersion);
         console.log('Device Identifier: ' + deviceIdentifier);
       }
-
       console.log(' ');
     });
 }
-
+/* istanbul ignore next */
 function exit() {
   process.stdin.on('data',
     function(data) {
@@ -84,7 +76,7 @@ function exit() {
     }
   );
 }
-
+/* istanbul ignore next */
 function get(port, host) {
   PORT = port;
   HOST = host;
@@ -92,5 +84,4 @@ function get(port, host) {
   tfget();
   exit();
 }
-
 exports.get = get;
