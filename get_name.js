@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 exports.get = function get(deviceIdentifier) {
 
   switch (deviceIdentifier) {
