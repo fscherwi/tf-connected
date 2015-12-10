@@ -10,7 +10,7 @@ program
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
   .option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
   .parse(process.argv);
-
+/* istanbul ignore next */
 if (!program.args.length) {
   if (program.host) {
     var HOST = program.host;
