@@ -29,6 +29,6 @@
   },
   "preferGlobal": true,
   "bin": {
-    "tf-connected": "command.js"
+    "tf-connected": "./bin/command.js"
   }
 }

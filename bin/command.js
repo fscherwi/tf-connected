@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var connected = require('./connected.js');
+var connected = require('../connected.js');
 
 program
-  .version(require('./package.json').version)
+  .version(require('../package.json').version)
   .usage('[options]')
   .option('-a, --advanced', 'Shows advanced information')
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
@@ -22,8 +22,11 @@ if (!program.args.length) {
   } else {
     var PORT = 4223;
   }
-
-  connected.get(port = PORT, host = HOST);
+  if (program.advanced) {
+    connected.get(port = PORT, host = HOST, advanced = true);
+  } else {
+    connected.get(port = PORT, host = HOST, advanced = false);
+  }
 } else {
   program.help();
 }
