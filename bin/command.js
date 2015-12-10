@@ -23,9 +23,9 @@ if (!program.args.length) {
     var PORT = 4223;
   }
   if (program.advanced) {
-    connected.get(port = PORT, host = HOST, advanced = true);
+    connected.get(PORT, HOST, true);
   } else {
-    connected.get(port = PORT, host = HOST, advanced = false);
+    connected.get(PORT, HOST, false);
   }
 } else {
   program.help();
