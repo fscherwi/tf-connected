@@ -55,7 +55,7 @@ function tfget() {
       console.log(' ');
     });
 }
-
+/* istanbul ignore next */
 function tfget_advanced() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
