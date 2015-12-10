@@ -4,7 +4,7 @@ var program = require('commander');
 var connected = require('../connected.js');
 
 program
-  .version(require('./package.json').version)
+  .version(require('../package.json').version)
   .usage('[options]')
   .option('-a, --advanced', 'Shows advanced information')
   .option('-h, --host [host]', 'The HOST, default to "localhost"')
