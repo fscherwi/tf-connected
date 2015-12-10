@@ -49,21 +49,28 @@ function tfinit() {
 /* istanbul ignore next */
 function tfget() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
+    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
+      console.log('NAME: ' + get_name.get(deviceIdentifier));
+      console.log('UID : ' + uid);
+      console.log(' ');
+    });
+}
+
+function tfget_advanced() {
+  ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
       console.log('NAME: ' + get_name.get(deviceIdentifier));
       console.log('UID : ' + uid);
-      if (program.advanced) {
-        console.log('Enumeration Type:  ' + enumerationType);
-        if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
-          console.log('');
-          return;
-        }
-        console.log('Connected UID:     ' + connectedUid);
-        console.log('Position:          ' + position);
-        console.log('Hardware Version:  ' + hardwareVersion);
-        console.log('Firmware Version:  ' + firmwareVersion);
-        console.log('Device Identifier: ' + deviceIdentifier);
+      console.log('Enumeration Type:  ' + enumerationType);
+      if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
+        console.log('');
+        return;
       }
+      console.log('Connected UID:     ' + connectedUid);
+      console.log('Position:          ' + position);
+      console.log('Hardware Version:  ' + hardwareVersion);
+      console.log('Firmware Version:  ' + firmwareVersion);
+      console.log('Device Identifier: ' + deviceIdentifier);
       console.log(' ');
     });
 }
@@ -84,4 +91,13 @@ function get(port, host) {
   tfget();
   exit();
 }
+
+function get_advanced(port, host) {
+  PORT = port;
+  HOST = host;
+  tfinit();
+  tfget_advanced();
+  exit();
+}
 exports.get = get;
+exports.get_advanced = get_advanced;
