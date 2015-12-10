@@ -23,11 +23,10 @@ if (!program.args.length) {
     var PORT = 4223;
   }
   if (program.advanced) {
-    connected.get_advanced(port = PORT, host = HOST);
+    connected.get(port = PORT, host = HOST, advanced = true);
   } else {
-    connected.get(port = PORT, host = HOST);
+    connected.get(port = PORT, host = HOST, advanced = false);
   }
-  connected.get(port = PORT, host = HOST);
 } else {
   program.help();
 }

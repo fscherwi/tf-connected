@@ -119,6 +119,6 @@ exports.get = function get(deviceIdentifier) {
     case Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER:
       return (Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME);
     default:
-      return ('NAME: unknown');
+      return ('unknown');
   }
 };

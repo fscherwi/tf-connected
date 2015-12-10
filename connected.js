@@ -84,20 +84,15 @@ function exit() {
   );
 }
 /* istanbul ignore next */
-function get(port, host) {
+function get(port, host, advanced) {
   PORT = port;
   HOST = host;
   tfinit();
-  tfget();
-  exit();
-}
-
-function get_advanced(port, host) {
-  PORT = port;
-  HOST = host;
-  tfinit();
-  tfget_advanced();
+  if (advanced === true) {
+    tfget_advanced();
+  } else {
+    tfget();
+  }
   exit();
 }
 exports.get = get;
-exports.get_advanced = get_advanced;
