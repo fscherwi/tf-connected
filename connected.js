@@ -32,7 +32,7 @@ function tfinit() {
           console.log('Error: FUNCTION NOT SUPPORTED');
           break;
         default:
-          console.log('Error: UNKNOWN ERROR');
+          console.log('Error: UNKNOWN');
           break;
       }
       process.exit();
@@ -43,8 +43,7 @@ function tfinit() {
       ipcon.enumerate();
     }
   );
-  console.log('Used HOST: ' + HOST);
-  console.log('Used PORT: ' + PORT);
+  console.log('Used HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 }
 /* istanbul ignore next */
 function tfget() {

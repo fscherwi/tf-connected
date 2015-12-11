@@ -3,7 +3,9 @@
   "version": "1.3.0",
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "command.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node ./bin/command.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/fscherwi/tf-connected.git"
