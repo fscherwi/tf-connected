@@ -49,8 +49,8 @@ function tfinit() {
 function tfget() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
-      console.log('NAME: ' + get_name.get(deviceIdentifier));
-      console.log('UID : ' + uid);
+      console.log('NAME: %s', get_name.get(deviceIdentifier));
+      console.log('UID : %s', uid);
       console.log(' ');
     });
 }
@@ -58,18 +58,18 @@ function tfget() {
 function tfget_advanced() {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
-      console.log('NAME: ' + get_name.get(deviceIdentifier));
-      console.log('UID : ' + uid);
-      console.log('Enumeration Type:  ' + enumerationType);
+      console.log('NAME: %s', get_name.get(deviceIdentifier));
+      console.log('UID : %s', uid);
+      console.log('Enumeration Type:  %s', enumerationType);
       if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
         console.log('');
         return;
       }
-      console.log('Connected UID:     ' + connectedUid);
-      console.log('Position:          ' + position);
-      console.log('Hardware Version:  ' + hardwareVersion);
-      console.log('Firmware Version:  ' + firmwareVersion);
-      console.log('Device Identifier: ' + deviceIdentifier);
+      console.log('Connected UID:     %s', connectedUid);
+      console.log('Position:          %s', position);
+      console.log('Hardware Version:  %s', hardwareVersion);
+      console.log('Firmware Version:  %s', firmwareVersion);
+      console.log('Device Identifier: %s', deviceIdentifier);
       console.log(' ');
     });
 }
@@ -78,7 +78,7 @@ function exit() {
   process.stdin.on('data',
     function(data) {
       ipcon.disconnect();
-      process.exit(0);
+      process.exit();
     }
   );
 }
