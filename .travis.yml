@@ -3,20 +3,20 @@ node_js:
   - "stable"
   - "4"
   - "0.12"
-
 install:
   - npm install
   - npm install -g
   - npm install istanbul coveralls codeclimate-test-reporter codecov.io
-
 script:
   - npm test
   - tf-connected
   - tf-connected --advanced
   - tf-connected --help
-
 after_script:
   - ./node_modules/.bin/istanbul --include-all-sources cover ./bin/command.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - ./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info
   - cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js
+cache:
+  directories:
+    - node_modules
