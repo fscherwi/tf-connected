@@ -78,7 +78,7 @@ function exit() {
   process.stdin.on('data',
     function(data) {
       ipcon.disconnect();
-      process.exit();
+      process.exit(0);
     }
   );
 }
