@@ -46,30 +46,23 @@ function tfinit() {
   console.log('Used HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 }
 /* istanbul ignore next */
-function tfget() {
+function tfget(advanced) {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
     function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
       console.log('NAME: %s', get_name.get(deviceIdentifier));
       console.log('UID : %s', uid);
-      console.log(' ');
-    });
-}
-/* istanbul ignore next */
-function tfget_advanced() {
-  ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
-      console.log('NAME: %s', get_name.get(deviceIdentifier));
-      console.log('UID : %s', uid);
-      console.log('Enumeration Type:  %s', enumerationType);
-      if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
-        console.log('');
-        return;
+      if (advanced === true) {
+        console.log('Enumeration Type:  %s', enumerationType);
+        if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
+          console.log('');
+          return;
+        }
+        console.log('Connected UID:     %s', connectedUid);
+        console.log('Position:          %s', position);
+        console.log('Hardware Version:  %s', hardwareVersion);
+        console.log('Firmware Version:  %s', firmwareVersion);
+        console.log('Device Identifier: %s', deviceIdentifier);
       }
-      console.log('Connected UID:     %s', connectedUid);
-      console.log('Position:          %s', position);
-      console.log('Hardware Version:  %s', hardwareVersion);
-      console.log('Firmware Version:  %s', firmwareVersion);
-      console.log('Device Identifier: %s', deviceIdentifier);
       console.log(' ');
     });
 }
@@ -88,9 +81,9 @@ function get(port, host, advanced) {
   HOST = host;
   tfinit();
   if (advanced === true) {
-    tfget_advanced();
+    tfget(advanced === true);
   } else {
-    tfget();
+    tfget(advanced === false);
   }
   exit();
 }
