@@ -48,7 +48,7 @@ function tfinit() {
 /* istanbul ignore next */
 function tfget(advanced) {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
+    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
       console.log('NAME: %s', get_name.get(deviceIdentifier));
       console.log('UID : %s', uid);
       if (advanced === true) {
