@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fscherwi/tf-connected.git"
+    "url": "git+https://github.com/fscherwi/tf-connected.git"
   },
   "author": "fscherwi",
   "license": "MIT",

@@ -1,6 +1,5 @@
 /* istanbul ignore next */
 module.exports = function(grunt) {
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jsbeautifier: {
@@ -41,7 +40,6 @@ module.exports = function(grunt) {
         ].join('&&')
       }
     }
-
   });
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks('grunt-contrib-uglify');

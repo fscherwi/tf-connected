@@ -67,16 +67,7 @@ function tfget(advanced) {
     });
 }
 /* istanbul ignore next */
-function exit() {
-  process.stdin.on('data',
-    function(data) {
-      ipcon.disconnect();
-      process.exit(0);
-    }
-  );
-}
-/* istanbul ignore next */
-function get(port, host, advanced) {
+module.exports.get = function get(port, host, advanced) {
   PORT = port;
   HOST = host;
   tfinit();
@@ -85,6 +76,10 @@ function get(port, host, advanced) {
   } else {
     tfget(advanced);
   }
-  exit();
-}
-exports.get = get;
+  process.stdin.on('data',
+    function(data) {
+      ipcon.disconnect();
+      process.exit(0);
+    }
+  );
+};
