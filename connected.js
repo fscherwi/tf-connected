@@ -81,9 +81,9 @@ function get(port, host, advanced) {
   HOST = host;
   tfinit();
   if (advanced === true) {
-    tfget(advanced === true);
+    tfget(advanced);
   } else {
-    tfget(advanced === false);
+    tfget(advanced);
   }
   exit();
 }
