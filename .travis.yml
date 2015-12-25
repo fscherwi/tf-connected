@@ -22,6 +22,4 @@ matrix:
     - node_js: "stable"
       cache: false
     - node_js: "4"
-      cache: true
     - node_js: "0.12"
-      cache: true
