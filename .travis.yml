@@ -1,4 +1,8 @@
 language: node_js
+node_js:
+  - "stable"
+  - "4"
+  - "0.12"
 install:
   - npm install
   - npm install -g
@@ -17,8 +21,3 @@ after_script:
 cache:
   directories:
     - node_modules
-matrix:
-  include:
-    - node_js: "stable"
-    - node_js: "4"
-    - node_js: "0.12"
