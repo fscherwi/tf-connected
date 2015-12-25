@@ -122,7 +122,7 @@ exports.get = function get(deviceIdentifier) {
   ];
   var length = names.length;
   for (var i = 0; i < length; i=i+2) {
-    if (deviceIdentifier == names[i]) {
+    if (deviceIdentifier === names[i]) {
       return names[i+1];
     }
   }

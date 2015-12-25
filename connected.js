@@ -66,7 +66,7 @@ function tfget(advanced) {
 }
 /* istanbul ignore next */
 module.exports.get = function get(port, host, advanced) {
-  tfinit(HOST = host, PORT = port);
+  tfinit(host, port);
   if (advanced === true) {
     tfget(advanced = true);
   } else {
