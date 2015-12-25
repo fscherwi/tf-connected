@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jsbeautifier: {
-      files: ["*.js", "*.json", "!*.min.js"],
+      files: ['*.js', '*.json', '!*.min.js'],
       options: {
         js: {
           indentSize: 2
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.loadNpmTasks("grunt-jsbeautifier");
+  grunt.loadNpmTasks('grunt-jsbeautifier');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
 

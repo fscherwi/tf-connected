@@ -15,7 +15,7 @@ if (!program.args.length) {
   if (program.host) {
     var HOST = program.host;
   } else {
-    var HOST = "localhost";
+    var HOST = 'localhost';
   }
   if (program.port) {
     var PORT = program.port;
