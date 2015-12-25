@@ -12,15 +12,17 @@ program
   .parse(process.argv);
 /* istanbul ignore next */
 if (!program.args.length) {
+  var HOST;
+  var PORT;
   if (program.host) {
-    var HOST = program.host;
+    HOST = program.host;
   } else {
-    var HOST = 'localhost';
+    HOST = 'localhost';
   }
   if (program.port) {
-    var PORT = program.port;
+    PORT = program.port;
   } else {
-    var PORT = 4223;
+    PORT = 4223;
   }
   if (program.advanced) {
     connected.get(PORT, HOST, true);
