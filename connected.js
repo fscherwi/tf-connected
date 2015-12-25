@@ -48,7 +48,7 @@ function tfinit() {
 /* istanbul ignore next */
 function tfget(advanced) {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier) {
+    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
       console.log('NAME: %s', get_name.get(deviceIdentifier));
       console.log('UID : %s', uid);
       if (advanced === true) {
@@ -67,24 +67,23 @@ function tfget(advanced) {
     });
 }
 /* istanbul ignore next */
-function exit() {
+module.exports.get = function get(port, host, advanced) {
+  PORT = port;
+  HOST = host;
+  tfinit();
+  if (advanced === true) {
+    tfget(advanced);
+  } else {
+    tfget(advanced);
+  }
+  setTimeout(function() {
+    ipcon.disconnect();
+    process.exit(0);
+  }, 1000);
   process.stdin.on('data',
     function(data) {
       ipcon.disconnect();
       process.exit(0);
     }
   );
-}
-/* istanbul ignore next */
-function get(port, host, advanced) {
-  PORT = port;
-  HOST = host;
-  tfinit();
-  if (advanced === true) {
-    tfget(advanced === true);
-  } else {
-    tfget(advanced === false);
-  }
-  exit();
-}
-exports.get = get;
+};
