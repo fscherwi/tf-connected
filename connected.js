@@ -76,10 +76,4 @@ module.exports.get = function get(port, host, advanced) {
     ipcon.disconnect();
     process.exit(0);
   }, 1000);
-  process.stdin.on('data',
-    function(data) {
-      ipcon.disconnect();
-      process.exit(0);
-    }
-  );
 };
