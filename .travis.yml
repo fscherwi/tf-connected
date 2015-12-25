@@ -1,7 +1,4 @@
 language: node_js
-node_js:
-  - "4"
-  - "0.12"
 install:
   - npm install
   - npm install -g
@@ -24,3 +21,7 @@ matrix:
   include:
     - node_js: "stable"
       cache: false
+    - node_js: "4"
+      cache: true
+    - node_js: "0.12"
+      cache: true
