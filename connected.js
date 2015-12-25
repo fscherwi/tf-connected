@@ -1,11 +1,9 @@
 var Tinkerforge = require('tinkerforge');
 var get_name = require('./get_name.js');
 var ipcon;
-var PORT;
-var HOST;
 console.log('');
 /* istanbul ignore next */
-function tfinit() {
+function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
     function(error) {
@@ -68,13 +66,11 @@ function tfget(advanced) {
 }
 /* istanbul ignore next */
 module.exports.get = function get(port, host, advanced) {
-  PORT = port;
-  HOST = host;
-  tfinit();
+  tfinit(HOST = host, PORT = port);
   if (advanced === true) {
-    tfget(advanced);
+    tfget(advanced = true);
   } else {
-    tfget(advanced);
+    tfget(advanced = false);
   }
   setTimeout(function() {
     ipcon.disconnect();
