@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: './',
-          src: ['*.js', '!Gruntfile.js', '!**/node_modules/**', '!command.js'],
+          src: ['*.js', 'get_names.js', '!Gruntfile.js', '!**/node_modules/**', '!command.js'],
           dest: './uglify',
           ext: '.js'
         }]
