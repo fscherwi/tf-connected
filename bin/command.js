@@ -12,22 +12,16 @@ program
   .parse(process.argv);
 /* istanbul ignore next */
 if (!program.args.length) {
-  var HOST;
-  var PORT;
-  if (program.host) {
-    HOST = program.host;
-  } else {
-    HOST = 'localhost';
+  if (program.host === undefined) {
+    program.host = 'localhost';
   }
-  if (program.port) {
-    PORT = program.port;
-  } else {
-    PORT = 4223;
+  if (program.port === undefined) {
+    program.port = 4223;
   }
   if (program.advanced) {
-    connected.get(PORT, HOST, true);
+    connected.get(program.port, program.host, true);
   } else {
-    connected.get(PORT, HOST, false);
+    connected.get(program.port, program.host, false);
   }
 } else {
   program.help();
