@@ -29,6 +29,8 @@ exports.get = function get(deviceIdentifier) {
     Tinkerforge.BrickletAnalogOutV2.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletBarometer.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletBarometer.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletCO2.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletCO2.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletColor.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletColor.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletCurrent12.DEVICE_IDENTIFIER,
@@ -89,6 +91,10 @@ exports.get = function get(deviceIdentifier) {
     Tinkerforge.BrickletMultiTouch.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletNFCRFID.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletNFCRFID.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletOLED128x64.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletOLED128x64.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletOLED64x48.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletOLED64x48.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletPiezoBuzzer.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletPiezoBuzzer.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletPiezoSpeaker.DEVICE_IDENTIFIER,
@@ -113,17 +119,21 @@ exports.get = function get(deviceIdentifier) {
     Tinkerforge.BrickletTemperature.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletTemperatureIR.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletTemperatureIR.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletThermocouple.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletThermocouple.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletTilt.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletTilt.DEVICE_DISPLAY_NAME,
+    Tinkerforge.BrickletUVLight.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletUVLight.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletVoltage.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletVoltage.DEVICE_DISPLAY_NAME,
     Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME
   ];
   var length = names.length;
-  for (var i = 0; i < length; i=i+2) {
+  for (var i = 0; i < length; i = i + 2) {
     if (deviceIdentifier === names[i]) {
-      return names[i+1];
+      return names[i + 1];
     }
   }
 };
