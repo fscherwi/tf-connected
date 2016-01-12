@@ -12,10 +12,10 @@ program
   .parse(process.argv);
 /* istanbul ignore next */
 if (!program.args.length) {
-  if (program.host === undefined) {
+  if (!program.host) {
     program.host = 'localhost';
   }
-  if (program.port === undefined) {
+  if (!program.port) {
     program.port = 4223;
   }
   if (program.advanced) {
