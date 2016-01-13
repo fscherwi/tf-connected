@@ -1,4 +1,5 @@
-exports.get = function get(deviceIdentifier) { /* istanbul ignore next */
+/* istanbul ignore next */
+exports.get = function get(deviceIdentifier) {
   var Tinkerforge = require('tinkerforge'),
     names = [
       Tinkerforge.BrickDC.DEVICE_IDENTIFIER,
