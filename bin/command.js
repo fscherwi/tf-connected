@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var connected = require('../connected.js');
 
 program
   .version(require('../package.json').version)
@@ -19,9 +18,9 @@ if (!program.args.length) {
     program.port = 4223;
   }
   if (program.advanced) {
-    connected.get(program.port, program.host, true);
+    require('../connected.js').get(program.port, program.host, true);
   } else {
-    connected.get(program.port, program.host, false);
+    require('../connected.js').get(program.port, program.host);
   }
 } else {
   program.help();
