@@ -33,5 +33,11 @@
   "preferGlobal": true,
   "bin": {
     "tf-connected": "./bin/command.js"
-  }
+  },
+  "files": [
+    "weather.js",
+    "connected.js",
+    "get_name.js",
+    "bin/command.js"
+  ]
 }
