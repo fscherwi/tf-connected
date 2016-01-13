@@ -1,6 +1,7 @@
 /* istanbul ignore next */
 exports.get = function get(deviceIdentifier) {
   var Tinkerforge = require('tinkerforge'),
+    i,
     names = [
       Tinkerforge.BrickDC.DEVICE_IDENTIFIER,
       Tinkerforge.BrickDC.DEVICE_DISPLAY_NAME,
@@ -131,7 +132,7 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME
     ];
   var length = names.length;
-  for (var i = 0; i < length; i = i + 2) {
+  for (i = 0; i < length; i = i + 2) {
     if (deviceIdentifier === names[i]) {
       return names[i + 1];
     }
