@@ -6,7 +6,7 @@ node_js:
 install:
   - npm install
   - npm install -g
-  - npm update istanbul coveralls codeclimate-test-reporter codecov.io codacy-coverage
+  - npm install istanbul coveralls codeclimate-test-reporter codecov.io codacy-coverage
 script:
   - npm test
   - tf-connected
