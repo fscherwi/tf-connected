@@ -102,6 +102,8 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletPiezoSpeaker.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletPTC.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletPTC.DEVICE_DISPLAY_NAME,
+      Tinkerforge.BrickletRealTimeClock.DEVICE_IDENTIFIER,
+      Tinkerforge.BrickletRealTimeClock.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletRemoteSwitch.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletRemoteSwitch.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletRotaryEncoder.DEVICE_IDENTIFIER,
