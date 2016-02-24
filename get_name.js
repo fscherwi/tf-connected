@@ -132,8 +132,8 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletVoltage.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME
-    ];
-  var length = names.length;
+    ],
+    length = names.length;
   for (i = 0; i < length; i = i + 2) {
     if (deviceIdentifier === names[i]) {
       return names[i + 1];
