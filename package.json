@@ -27,7 +27,7 @@
   "devDependencies": {
     "grunt": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
-    "grunt-jsbeautifier": "^0.2.10",
+    "grunt-jsbeautifier": "^0.2.12",
     "grunt-shell": "^1.1.2"
   },
   "preferGlobal": true,
