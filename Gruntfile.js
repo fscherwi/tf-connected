@@ -47,5 +47,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['jsbeautifier']);
   grunt.registerTask('publish', ['shell:publish']);
-
 };

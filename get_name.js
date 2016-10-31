@@ -1,7 +1,6 @@
 /* istanbul ignore next */
 exports.get = function get(deviceIdentifier) {
   var Tinkerforge = require('tinkerforge'),
-    i,
     names = [
       Tinkerforge.BrickDC.DEVICE_IDENTIFIER,
       Tinkerforge.BrickDC.DEVICE_DISPLAY_NAME,
@@ -30,6 +29,8 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletAnalogOutV2.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletBarometer.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletBarometer.DEVICE_DISPLAY_NAME,
+      Tinkerforge.BrickletCAN.DEVICE_IDENTIFIER,
+      Tinkerforge.BrickletCAN.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletCO2.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletCO2.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletColor.DEVICE_IDENTIFIER,
@@ -110,6 +111,8 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletRotaryEncoder.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletRotaryPoti.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletRotaryPoti.DEVICE_DISPLAY_NAME,
+      Tinkerforge.BrickletRGBLED.DEVICE_IDENTIFIER,
+      Tinkerforge.BrickletRGBLED.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletRS232.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletRS232.DEVICE_DISPLAY_NAME,
       Tinkerforge.BrickletSegmentDisplay4x7.DEVICE_IDENTIFIER,
@@ -133,6 +136,7 @@ exports.get = function get(deviceIdentifier) {
       Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER,
       Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME
     ],
+    i,
     length = names.length;
   for (i = 0; i < length; i = i + 2) {
     if (deviceIdentifier === names[i]) {

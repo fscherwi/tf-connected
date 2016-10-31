@@ -22,7 +22,7 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "commander": "^2.9.0",
-    "tinkerforge": "^2.0.8"
+    "tinkerforge": "^2.0.10"
   },
   "devDependencies": {
     "grunt": "^1.0.0",
