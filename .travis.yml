@@ -1,6 +1,8 @@
 language: node_js
 node_js:
+  - "latest"
   - "stable"
+  - "lts"
   - "0.12"
 install:
   - npm install
