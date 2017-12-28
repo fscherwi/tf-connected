@@ -265,6 +265,34 @@ var names_array = [
   [
     Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER,
     Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletDMX.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletDMX.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletHumidityV2.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletHumidityV2.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletMotorizedLinearPoti.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletMotorizedLinearPoti.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletRGBLEDButton.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletRGBLEDButton.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletRGBLEDMatrix.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletRGBLEDMatrix.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletThermalImaging.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletThermalImaging.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickletRGBLEDMatrix.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickletRGBLEDMatrix.DEVICE_DISPLAY_NAME
   ]
 ];
 
