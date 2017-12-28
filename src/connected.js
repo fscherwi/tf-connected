@@ -6,7 +6,7 @@ function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
     function (error) {
-      error(code);
+      error(error);
       process.exit();
     }
   );
