@@ -5,38 +5,13 @@ var Tinkerforge = require('tinkerforge'),
 function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
-    function(error) {
-      switch (error) {
-        case 11:
-          console.log('Error: ALREADY CONNECTED');
-          break;
-        case 12:
-          console.log('Error: NOT CONNECTED');
-          break;
-        case 13:
-          console.log('Error: CONNECT FAILED');
-          break;
-        case 21:
-          console.log('Error: INVALID FUNCTION ID');
-          break;
-        case 31:
-          console.log('Error: TIMEOUT');
-          break;
-        case 41:
-          console.log('Error: INVALID PARAMETER');
-          break;
-        case 42:
-          console.log('Error: FUNCTION NOT SUPPORTED');
-          break;
-        default:
-          console.log('Error: UNKNOWN');
-          break;
-      }
+    function (error) {
+      error(code);
       process.exit();
     }
   );
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-    function(connectReason) {
+    function (connectReason) {
       ipcon.enumerate();
     }
   );
@@ -45,7 +20,7 @@ function tfinit(HOST, PORT) {
 /* istanbul ignore next */
 function tfget(advanced) {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
+    function (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
       console.log('NAME: %s', get_name.get(deviceIdentifier));
       console.log('UID : %s', uid);
       if (advanced) {
@@ -64,6 +39,36 @@ function tfget(advanced) {
     });
 }
 /* istanbul ignore next */
+function error(code) {
+  switch (code) {
+  case 11:
+    console.log('Error: ALREADY CONNECTED');
+    break;
+  case 12:
+    console.log('Error: NOT CONNECTED');
+    break;
+  case 13:
+    console.log('Error: CONNECT FAILED');
+    break;
+  case 21:
+    console.log('Error: INVALID FUNCTION ID');
+    break;
+  case 31:
+    console.log('Error: TIMEOUT');
+    break;
+  case 41:
+    console.log('Error: INVALID PARAMETER');
+    break;
+  case 42:
+    console.log('Error: FUNCTION NOT SUPPORTED');
+    break;
+  default:
+    console.log('Error: UNKNOWN');
+    break;
+  }
+}
+
+/* istanbul ignore next */
 module.exports.get = function get(port, host, advanced) {
   tfinit(host, port);
   if (advanced) {
@@ -71,7 +76,7 @@ module.exports.get = function get(port, host, advanced) {
   } else {
     tfget(advanced = false);
   }
-  setTimeout(function() {
+  setTimeout(function () {
     ipcon.disconnect();
     process.exit(0);
   }, 100);
