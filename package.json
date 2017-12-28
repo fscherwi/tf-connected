@@ -1,6 +1,6 @@
 {
   "name": "tf-connected",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "./bin/command.js",
   "scripts": {
@@ -32,9 +32,8 @@
     "tf-connected": "./bin/command.js"
   },
   "files": [
-    "weather.js",
-    "connected.js",
-    "get_name.js",
+    "src/connected.js",
+    "src/get_name.js",
     "bin/command.js"
   ]
 }
