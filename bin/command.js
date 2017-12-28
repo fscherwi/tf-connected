@@ -18,9 +18,9 @@ if (!program.args.length) {
     program.port = 4223;
   }
   if (program.advanced) {
-    require('../connected.js').get(program.port, program.host, true);
+    require('../src/connected.js').get(program.port, program.host, true);
   } else {
-    require('../connected.js').get(program.port, program.host);
+    require('../src/connected.js').get(program.port, program.host);
   }
 } else {
   program.help();

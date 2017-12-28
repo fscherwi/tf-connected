@@ -2,7 +2,7 @@
   "name": "tf-connected",
   "version": "1.6.0",
   "description": "A Utility to show connected Bricks/Bricklets!",
-  "main": "command.js",
+  "main": "./bin/command.js",
   "scripts": {
     "test": "node ./bin/command.js"
   },
@@ -14,22 +14,19 @@
   "license": "MIT",
   "keywords": [
     "tinkerforge",
-    "hardware"
+    "hardware",
+    "brick",
+    "bricklet"
   ],
   "bugs": {
     "url": "https://github.com/fscherwi/tf-connected/issues"
   },
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
-    "commander": "^2.9.0",
-    "tinkerforge": "^2.0.10"
+    "commander": "^2.12.2",
+    "tinkerforge": "^2.0.16"
   },
-  "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-contrib-uglify": "^3.1.0",
-    "grunt-jsbeautifier": "^0.2.12",
-    "grunt-shell": "^2.0.0"
-  },
+  "devDependencies": {},
   "preferGlobal": true,
   "bin": {
     "tf-connected": "./bin/command.js"
