@@ -1,5 +1,4 @@
 /* istanbul ignore next */
-
 var Tinkerforge = require('tinkerforge');
 var names_array = [
   [
@@ -270,13 +269,8 @@ var names_array = [
 ];
 
 exports.get = function get(deviceIdentifier) {
-  var name = "undefined";
-
-  names_array.forEach(function (names) {
-    if (parseFloat(deviceIdentifier) == parseFloat(names[0])) {
-      name = names[1];
-    }
-  });
-
-  return name;
+  function checkName(names) {
+    return names[0] === deviceIdentifier;
+  }
+  return names_array.find(checkName)[1];
 };
