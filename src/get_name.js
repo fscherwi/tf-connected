@@ -307,7 +307,7 @@ var Tinkerforge = require('tinkerforge'),
       Tinkerforge.BrickletRGBLEDMatrix.DEVICE_DISPLAY_NAME
     ]
   ];
-
+/* istanbul ignore next */
 exports.get = function get(deviceIdentifier) {
   function checkName(names) {
     return names[0] === deviceIdentifier;
