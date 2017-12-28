@@ -10,6 +10,10 @@ var names_array = [
     Tinkerforge.BrickIMU.DEVICE_DISPLAY_NAME
   ],
   [
+    Tinkerforge.BrickIMUV2.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickIMUV2.DEVICE_DISPLAY_NAME
+  ],
+  [
     Tinkerforge.BrickMaster.DEVICE_IDENTIFIER,
     Tinkerforge.BrickMaster.DEVICE_DISPLAY_NAME
   ],
@@ -20,6 +24,14 @@ var names_array = [
   [
     Tinkerforge.BrickStepper.DEVICE_IDENTIFIER,
     Tinkerforge.BrickStepper.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickRED.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickRED.DEVICE_DISPLAY_NAME
+  ],
+  [
+    Tinkerforge.BrickSilentStepper.DEVICE_IDENTIFIER,
+    Tinkerforge.BrickSilentStepper.DEVICE_DISPLAY_NAME
   ],
   // BRICKLET'S
   [
