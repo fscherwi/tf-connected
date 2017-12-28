@@ -6,7 +6,7 @@ function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
     function (error) {
-      error(error);
+      error_output(error);
       process.exit();
     }
   );
@@ -39,7 +39,7 @@ function tfget(advanced) {
     });
 }
 /* istanbul ignore next */
-function error(code) {
+function error_output(code) {
   switch (code) {
   case 11:
     console.log('Error: ALREADY CONNECTED');
