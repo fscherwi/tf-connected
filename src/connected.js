@@ -6,7 +6,7 @@ function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
     function (error) {
-      error_output(error);
+      console.log(error_output(error));
       process.exit();
     }
   );
@@ -42,29 +42,21 @@ function tfget(advanced) {
 function error_output(code) {
   switch (code) {
   case 11:
-    console.log('Error: ALREADY CONNECTED');
-    break;
+    return 'Error: ALREADY CONNECTED';
   case 12:
-    console.log('Error: NOT CONNECTED');
-    break;
+    return 'Error: NOT CONNECTED';
   case 13:
-    console.log('Error: CONNECT FAILED');
-    break;
+    return 'Error: CONNECT FAILED';
   case 21:
-    console.log('Error: INVALID FUNCTION ID');
-    break;
+    return 'Error: INVALID FUNCTION ID';
   case 31:
-    console.log('Error: TIMEOUT');
-    break;
+    return 'Error: TIMEOUT';
   case 41:
-    console.log('Error: INVALID PARAMETER');
-    break;
+    return 'Error: INVALID PARAMETER';
   case 42:
-    console.log('Error: FUNCTION NOT SUPPORTED');
-    break;
+    return 'Error: FUNCTION NOT SUPPORTED';
   default:
-    console.log('Error: UNKNOWN');
-    break;
+    return 'Error: UNKNOWN';
   }
 }
 
