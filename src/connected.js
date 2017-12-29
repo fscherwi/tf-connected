@@ -2,6 +2,27 @@ var Tinkerforge = require('tinkerforge'),
   get_name = require('./get_name.js'),
   ipcon;
 /* istanbul ignore next */
+function error_output(code) {
+  switch (code) {
+  case 11:
+    return 'Error: ALREADY CONNECTED';
+  case 12:
+    return 'Error: NOT CONNECTED';
+  case 13:
+    return 'Error: CONNECT FAILED';
+  case 21:
+    return 'Error: INVALID FUNCTION ID';
+  case 31:
+    return 'Error: TIMEOUT';
+  case 41:
+    return 'Error: INVALID PARAMETER';
+  case 42:
+    return 'Error: FUNCTION NOT SUPPORTED';
+  default:
+    return 'Error: UNKNOWN';
+  }
+}
+/* istanbul ignore next */
 function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
@@ -11,7 +32,7 @@ function tfinit(HOST, PORT) {
     }
   );
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-    function (connectReason) {
+    function () {
       ipcon.enumerate();
     }
   );
@@ -38,28 +59,6 @@ function tfget(advanced) {
       console.log(' ');
     });
 }
-/* istanbul ignore next */
-function error_output(code) {
-  switch (code) {
-  case 11:
-    return 'Error: ALREADY CONNECTED';
-  case 12:
-    return 'Error: NOT CONNECTED';
-  case 13:
-    return 'Error: CONNECT FAILED';
-  case 21:
-    return 'Error: INVALID FUNCTION ID';
-  case 31:
-    return 'Error: TIMEOUT';
-  case 41:
-    return 'Error: INVALID PARAMETER';
-  case 42:
-    return 'Error: FUNCTION NOT SUPPORTED';
-  default:
-    return 'Error: UNKNOWN';
-  }
-}
-
 /* istanbul ignore next */
 module.exports.get = function get(port, host, advanced) {
   tfinit(host, port);
