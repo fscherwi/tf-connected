@@ -1,6 +1,6 @@
 /* istanbul ignore next */
 var Tinkerforge = require('tinkerforge'),
-  names_array = [
+  namesArray = [
     [Tinkerforge.BrickDC.DEVICE_IDENTIFIER, Tinkerforge.BrickDC.DEVICE_DISPLAY_NAME],
     [Tinkerforge.BrickIMU.DEVICE_IDENTIFIER, Tinkerforge.BrickIMU.DEVICE_DISPLAY_NAME],
     [Tinkerforge.BrickIMUV2.DEVICE_IDENTIFIER, Tinkerforge.BrickIMUV2.DEVICE_DISPLAY_NAME],
@@ -86,5 +86,5 @@ exports.get = function get(deviceIdentifier) {
   function checkName(names) {
     return names[0] === deviceIdentifier;
   }
-  return names_array.find(checkName)[1];
+  return namesArray.find(checkName)[1];
 };

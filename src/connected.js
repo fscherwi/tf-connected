@@ -2,37 +2,37 @@ var Tinkerforge = require('tinkerforge'),
   get_name = require('./get_name.js'),
   ipcon;
 /* istanbul ignore next */
-function error_output(code) {
+function errorOutput(code) {
   switch (code) {
-  case 11:
-    return 'Error: ALREADY CONNECTED';
-  case 12:
-    return 'Error: NOT CONNECTED';
-  case 13:
-    return 'Error: CONNECT FAILED';
-  case 21:
-    return 'Error: INVALID FUNCTION ID';
-  case 31:
-    return 'Error: TIMEOUT';
-  case 41:
-    return 'Error: INVALID PARAMETER';
-  case 42:
-    return 'Error: FUNCTION NOT SUPPORTED';
-  default:
-    return 'Error: UNKNOWN';
+    case 11:
+      return 'ALREADY CONNECTED';
+    case 12:
+      return 'NOT CONNECTED';
+    case 13:
+      return 'CONNECT FAILED';
+    case 21:
+      return 'INVALID FUNCTION ID';
+    case 31:
+      return 'TIMEOUT';
+    case 41:
+      return 'INVALID PARAMETER';
+    case 42:
+      return 'FUNCTION NOT SUPPORTED';
+    default:
+      return 'UNKNOWN';
   }
 }
 /* istanbul ignore next */
 function tfinit(HOST, PORT) {
   ipcon = new Tinkerforge.IPConnection();
   ipcon.connect(HOST, PORT,
-    function (error) {
-      console.log(error_output(error));
+    function(error) {
+      console.log('Error: ' + errorOutput(error));
       process.exit();
     }
   );
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-    function () {
+    function() {
       ipcon.enumerate();
     }
   );
@@ -41,7 +41,7 @@ function tfinit(HOST, PORT) {
 /* istanbul ignore next */
 function tfget(advanced) {
   ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-    function (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
+    function(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) {
       console.log('NAME: %s', get_name.get(deviceIdentifier));
       console.log('UID : %s', uid);
       if (advanced) {
@@ -67,7 +67,7 @@ module.exports.get = function get(port, host, advanced) {
   } else {
     tfget(advanced = false);
   }
-  setTimeout(function () {
+  setTimeout(function() {
     ipcon.disconnect();
     process.exit(0);
   }, 100);
