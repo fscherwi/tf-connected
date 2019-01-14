@@ -30,7 +30,8 @@ function tfinit(HOST, PORT) {
 	ipcon = new Tinkerforge.IPConnection();
 	ipcon.connect(HOST, PORT,
 		error => {
-			throw new Error('Error: ' + errorOutput(error));
+			console.log('Error: ' + errorOutput(error));
+			process.exit(1);
 		}
 	);
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
@@ -66,8 +67,8 @@ function tfget(advanced) {
 }
 
 /* istanbul ignore next */
-module.exports = function () {
-	this.getConnected = function (port, host, advanced) {
+module.exports = function() {
+	this.getConnected = function(port, host, advanced) {
 		tfinit(host, port);
 		if (advanced) {
 			tfget(advanced = true);
@@ -77,7 +78,8 @@ module.exports = function () {
 
 		setTimeout(() => {
 			ipcon.disconnect();
-			throw new Error('Timeout');
+			console.log('Timeout');
+			process.exit(1);
 		}, 100);
 	};
 };

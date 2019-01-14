@@ -38,5 +38,10 @@
     "src/connected.js",
     "src/get_name.js",
     "bin/command.js"
-  ]
+  ],
+  "xo": {
+    "rules": {
+      "unicorn/no-process-exit": false
+    }
+  }
 }
