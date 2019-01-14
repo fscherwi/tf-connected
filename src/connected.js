@@ -71,15 +71,13 @@ module.exports = function () {
 	this.getConnected = function (port, host, advanced) {
 		tfinit(host, port);
 		if (advanced) {
-			tfget(advanced = true);
+			tfget(true);
 		} else {
-			tfget(advanced = false);
+			tfget(false);
 		}
 
 		setTimeout(() => {
 			ipcon.disconnect();
-			console.log('Timeout');
-			process.exit(1);
 		}, 100);
 	};
 };
