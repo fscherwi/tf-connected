@@ -5,7 +5,8 @@
   "main": "./bin/command.js",
   "scripts": {
     "test": "node ./bin/command.js",
-    "lint": "xo"
+    "lint": "xo",
+    "istanbul": "istanbul --include-all-sources cover ./bin/command.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,9 @@
     "tinkerforge": "^2.1.21"
   },
   "devDependencies": {
+    "codacy-coverage": "^3.4.0",
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5",
     "xo": "^0.24.0"
   },
   "preferGlobal": true,

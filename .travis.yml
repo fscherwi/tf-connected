@@ -10,7 +10,6 @@ notifications:
 install:
   - npm install
   - npm install -g
-  - npm install istanbul coveralls codeclimate-test-reporter codecov.io codacy-coverage
 script:
   - npm run lint
   - npm test
@@ -18,8 +17,6 @@ script:
   - tf-connected --advanced
   - tf-connected --help
 after_script:
-  - ./node_modules/.bin/istanbul --include-all-sources cover ./bin/command.js
-  - ./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info
+  - npm run istanbul
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
