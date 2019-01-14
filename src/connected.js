@@ -1,6 +1,6 @@
 const Tinkerforge = require('tinkerforge');
 
-const getName = require('./get-name.js');
+require('./get-name.js')();
 
 let ipcon;
 /* istanbul ignore next */
@@ -45,7 +45,7 @@ function tfinit(HOST, PORT) {
 function tfget(advanced) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			console.log('NAME: %s', getName.get(deviceIdentifier));
+			console.log('NAME: %s', getName(deviceIdentifier));
 			console.log('UID : %s', uid);
 			if (advanced) {
 				console.log('Enumeration Type:  %s', enumerationType);
@@ -66,18 +66,18 @@ function tfget(advanced) {
 }
 
 /* istanbul ignore next */
-function get(port, host, advanced) {
-	tfinit(host, port);
-	if (advanced) {
-		tfget(advanced = true);
-	} else {
-		tfget(advanced = false);
-	}
+module.exports = function () {
+	this.getConnected = function (port, host, advanced) {
+		tfinit(host, port);
+		if (advanced) {
+			tfget(advanced = true);
+		} else {
+			tfget(advanced = false);
+		}
 
-	setTimeout(() => {
-		ipcon.disconnect();
-		throw new Error('Timeout');
-	}, 100);
-}
-
-module.exports = get();
+		setTimeout(() => {
+			ipcon.disconnect();
+			throw new Error('Timeout');
+		}, 100);
+	};
+};

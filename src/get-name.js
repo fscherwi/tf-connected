@@ -82,13 +82,13 @@ const namesArray = [
 	[Tinkerforge.BrickletThermalImaging.DEVICE_IDENTIFIER, Tinkerforge.BrickletThermalImaging.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletRGBLEDMatrix.DEVICE_IDENTIFIER, Tinkerforge.BrickletRGBLEDMatrix.DEVICE_DISPLAY_NAME]
 ];
-/* istanbul ignore next */
-function get(deviceIdentifier) {
-	function checkName(names) {
-		return names[0] === deviceIdentifier;
-	}
 
-	return namesArray.find(checkName)[1];
-}
+module.exports = function () {
+	this.getName = function (deviceIdentifier) {
+		function checkName(names) {
+			return names[0] === deviceIdentifier;
+		}
 
-module.exports = get();
+		return namesArray.find(checkName)[1];
+	};
+};
