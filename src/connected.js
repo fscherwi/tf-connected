@@ -67,8 +67,8 @@ function tfget(advanced) {
 }
 
 /* istanbul ignore next */
-module.exports = function() {
-	this.getConnected = function(port, host, advanced) {
+module.exports = function () {
+	this.getConnected = function (port, host, advanced) {
 		tfinit(host, port);
 		if (advanced) {
 			tfget(advanced = true);

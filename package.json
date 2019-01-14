@@ -41,7 +41,8 @@
   ],
   "xo": {
     "rules": {
-      "unicorn/no-process-exit": false
+      "unicorn/no-process-exit": false,
+      "no-undef": "warn"
     }
   }
 }
