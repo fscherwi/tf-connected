@@ -12,11 +12,11 @@ install:
   - npm install -g
 script:
   - npm run lint
+  - npm run test
   #- npm test
   #- tf-connected
   #- tf-connected --advanced
   #- tf-connected --help
 after_script:
-  - npm run istanbul
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage

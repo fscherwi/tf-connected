@@ -4,9 +4,8 @@
   "description": "A Utility to show connected Bricks/Bricklets!",
   "main": "./bin/command.js",
   "scripts": {
-    "test": "node ./bin/command.js",
-    "lint": "xo",
-    "istanbul": "istanbul --include-all-sources cover ./bin/command.js"
+    "test": "nyc --reporter=lcov --reporter=text-lcov ava ",
+    "lint": "xo"
   },
   "repository": {
     "type": "git",
@@ -29,9 +28,10 @@
     "tinkerforge": "^2.1.21"
   },
   "devDependencies": {
+    "ava": "^1.1.0",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.2",
-    "istanbul": "^0.4.5",
+    "nyc": "^13.1.0",
     "xo": "^0.24.0"
   },
   "preferGlobal": true,
@@ -40,7 +40,7 @@
   },
   "files": [
     "src/connected.js",
-    "src/get_name.js",
+    "src/get-name.js",
     "bin/command.js"
   ],
   "xo": {
