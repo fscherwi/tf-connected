@@ -2,7 +2,6 @@ os:
   - osx
   - linux
 language: node_js
-sudo: false
 node_js:
   - "node"
   - "--lts"
@@ -14,6 +13,7 @@ install:
   - npm install -g
   - npm install istanbul coveralls codeclimate-test-reporter codecov.io codacy-coverage
 script:
+  - npm run lint
   - npm test
   - tf-connected
   - tf-connected --advanced
