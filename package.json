@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
-    "commander": "^2.17.1",
-    "tinkerforge": "^2.0.18"
+    "commander": "^2.19.0",
+    "tinkerforge": "^2.1.21"
   },
   "devDependencies": {},
   "preferGlobal": true,
