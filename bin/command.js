@@ -11,16 +11,19 @@ program
 	.option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
 	.parse(process.argv);
 
-if (!program.host) {
-	program.host = 'localhost';
+let host = 'localhost';
+let port = 4223;
+
+if (program.host) {
+	host = 'localhost';
 }
 
-if (!program.port) {
-	program.port = 4223;
+if (program.port) {
+	port = 4223;
 }
 
 if (program.advanced) {
-	getConnected(program.port, program.host, true);
+	getConnected(port, host, true);
 } else {
-	getConnected(program.port, program.host);
+	getConnected(port, host);
 }
