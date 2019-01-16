@@ -1,9 +1,13 @@
 const Tinkerforge = require('tinkerforge');
+const Table = require('easy-table');
 
 const getName = require('./get-name.js');
 
 let ipcon;
-/* istanbul ignore next */
+const t = new Table();
+const data = [];
+let connectedList = '';
+
 function errorOutput(code) {
 	switch (code) {
 		case 11:
@@ -25,7 +29,6 @@ function errorOutput(code) {
 	}
 }
 
-/* istanbul ignore next */
 function tfinit(HOST, PORT) {
 	ipcon = new Tinkerforge.IPConnection();
 	ipcon.connect(HOST, PORT,
@@ -42,32 +45,35 @@ function tfinit(HOST, PORT) {
 	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 }
 
-/* istanbul ignore next */
 function tfget(advanced) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			console.log('NAME: %s', getName.name(deviceIdentifier));
-			console.log('UID : %s', uid);
+			connectedList = connectedList + 'NAME: ' + getName.name(deviceIdentifier) + '\n';
+			connectedList = connectedList + 'UID : ' + uid + '\n';
+
 			if (advanced) {
-				console.log('Enumeration Type:  %s', enumerationType);
+				connectedList = connectedList + 'Enumeration Type: ' + enumerationType + '\n';
 				if (enumerationType === Tinkerforge.IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
 					console.log('');
 					return;
 				}
 
-				console.log('Connected UID:     %s', connectedUid);
-				console.log('Position:          %s', position);
-				console.log('Hardware Version:  %s', hardwareVersion);
-				console.log('Firmware Version:  %s', firmwareVersion);
-				console.log('Device Identifier: %s', deviceIdentifier);
+				connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
+				connectedList = connectedList + 'Position:          ' + position + '\n';
+				connectedList = connectedList + 'Hardware Version:  ' + hardwareVersion + '\n';
+				connectedList = connectedList + 'Firmware Version:  ' + firmwareVersion + '\n';
+				connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
+
+				data.push({name: getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier});
+			} else {
+				data.push({name: getName.name(deviceIdentifier), uid});
 			}
 
-			console.log(' ');
+			connectedList += '\n';
 		});
 }
 
-/* istanbul ignore next */
-module.exports.list = function (port, host, advanced) {
+module.exports.list = function (port, host, advanced, table) {
 	tfinit(host, port);
 	if (advanced) {
 		tfget(true);
@@ -77,5 +83,31 @@ module.exports.list = function (port, host, advanced) {
 
 	setTimeout(() => {
 		ipcon.disconnect();
+
+		if (advanced) {
+			data.forEach(table => {
+				t.cell('NAME', table.name);
+				t.cell('UID', table.uid);
+				t.cell('Enumeration Type', table.enumerationType);
+				t.cell('Connected UID', table.connectedUid);
+				t.cell('Position', table.position);
+				t.cell('Hardware Version', table.hardwareVersion);
+				t.cell('Firmware Version', table.firmwareVersion);
+				t.cell('Device Identifier', table.deviceIdentifier);
+				t.newRow();
+			});
+		} else {
+			data.forEach(table => {
+				t.cell('NAME', table.name);
+				t.cell('UID', table.uid);
+				t.newRow();
+			});
+		}
+
+		if (table) {
+			console.log(t.toString());
+		} else {
+			console.log(connectedList);
+		}
 	}, 100);
 };

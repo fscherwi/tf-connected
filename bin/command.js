@@ -7,6 +7,7 @@ program
 	.version(require('../package.json').version)
 	.usage('[options]')
 	.option('-a, --advanced', 'Shows advanced information')
+	.option('-t, --table', 'Show output as a table')
 	.option('-h, --host [host]', 'The HOST, default to "localhost"')
 	.option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
 	.parse(process.argv);
@@ -22,8 +23,4 @@ if (program.port) {
 	port = 4223;
 }
 
-if (program.advanced) {
-	getConnected.list(port, host, true);
-} else {
-	getConnected.list(port, host);
-}
+getConnected.list(port, host, program.advanced, program.table);

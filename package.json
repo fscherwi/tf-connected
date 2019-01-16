@@ -25,6 +25,7 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "commander": "^2.19.0",
+    "easy-table": "^1.1.1",
     "tinkerforge": "^2.1.21"
   },
   "devDependencies": {
@@ -42,5 +43,10 @@
     "src/connected.js",
     "src/get-name.js",
     "bin/command.js"
-  ]
+  ],
+  "xo": {
+    "rules": {
+      "unicorn/no-process-exit": false
+    }
+  }
 }
