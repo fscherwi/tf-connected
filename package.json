@@ -1,7 +1,7 @@
 {
   "name": "tf-connected",
   "version": "1.7.2",
-  "description": "A Utility to show connected Bricks/Bricklets!",
+  "description": "A Utility to show connected Tinkerforge Bricks and Bricklets!",
   "main": "./bin/command.js",
   "scripts": {
     "test": "nyc --reporter=lcov --reporter=text-lcov ava ",
