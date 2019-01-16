@@ -83,12 +83,10 @@ const namesArray = [
 	[Tinkerforge.BrickletRGBLEDMatrix.DEVICE_IDENTIFIER, Tinkerforge.BrickletRGBLEDMatrix.DEVICE_DISPLAY_NAME]
 ];
 
-module.exports = function () {
-	this.getName = function (deviceIdentifier) {
-		function checkName(names) {
-			return names[0] === deviceIdentifier;
-		}
+module.exports.name = function (deviceIdentifier) {
+	function checkName(names) {
+		return names[0] === deviceIdentifier;
+	}
 
-		return namesArray.find(checkName)[1];
-	};
+	return namesArray.find(checkName)[1];
 };

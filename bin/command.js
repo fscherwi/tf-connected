@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-require('../src/connected.js')();
+const getConnected = require('../src/connected.js');
 
 program
 	.version(require('../package.json').version)
@@ -23,7 +23,7 @@ if (program.port) {
 }
 
 if (program.advanced) {
-	getConnected(port, host, true);
+	getConnected.list(port, host, true);
 } else {
-	getConnected(port, host);
+	getConnected.list(port, host);
 }
