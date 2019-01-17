@@ -4,12 +4,11 @@ os:
 language: node_js
 node_js:
   - "node"
-  - "--lts"
 notifications:
   email: false
 install:
   - npm install
-  - npm install -g
+  #- npm install -g
 script:
   - npm run lint
   - npm run test
