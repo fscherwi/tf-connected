@@ -1,7 +1,6 @@
 os:
   - osx
   - linux
-  - windows
 language: node_js
 node_js:
   - "node"
@@ -20,6 +19,3 @@ script:
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
-allow_failures:
-  os:
-    - windows
