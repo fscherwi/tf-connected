@@ -16,11 +16,11 @@ let host = 'localhost';
 let port = 4223;
 
 if (program.host) {
-	host = 'localhost';
+	host = program.host;
 }
 
 if (program.port) {
-	port = 4223;
+	port = program.port;
 }
 
 getConnected.list(port, host, program.advanced, program.table);
