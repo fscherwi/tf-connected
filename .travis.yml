@@ -1,6 +1,7 @@
 os:
   - osx
   - linux
+  - windows
 language: node_js
 node_js:
   - "node"
@@ -9,7 +10,7 @@ notifications:
   email: false
 install:
   - npm install
-  - npm install -g
+  #- npm install -g
 script:
   - npm run lint
   - npm run test
