@@ -3,9 +3,6 @@ os:
   - linux
   - windows
 language: node_js
-node_js:
-  - "node"
-  - "--lts"
 notifications:
   email: false
 install:
