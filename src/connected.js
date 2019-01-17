@@ -6,7 +6,7 @@ const getName = require('./get-name.js');
 let ipcon;
 let name = '';
 let connectedList = '';
-let data;
+const data = [];
 
 function errorOutput(code) {
 	switch (code) {
@@ -49,22 +49,25 @@ function tfget(advanced, tableOutput) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 			name = getName.name(deviceIdentifier);
-			if ((advanced && !tableOutput) || !advanced) {
+
+			if (!advanced && tableOutput) {
+				data.push([name, uid]);
+			} else {
 				connectedList = connectedList + 'NAME: ' + name + '\n';
 				connectedList = connectedList + 'UID : ' + uid + '\n';
 			}
 
-			if (advanced && !tableOutput) {
-				connectedList = connectedList + 'Enumeration Type: ' + enumerationType + '\n';
-				connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
-				connectedList = connectedList + 'Position:          ' + position + '\n';
-				connectedList = connectedList + 'Hardware Version:  ' + hardwareVersion + '\n';
-				connectedList = connectedList + 'Firmware Version:  ' + firmwareVersion + '\n';
-				connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
-			} else if (advanced && tableOutput) {
-				data.push([name, uid, enumerationType, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier]);
-			} else if (!advanced && tableOutput) {
-				data.push([name, uid]);
+			if (advanced) {
+				if (tableOutput) {
+					data.push([name, uid, enumerationType, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier]);
+				} else {
+					connectedList = connectedList + 'Enumeration Type: ' + enumerationType + '\n';
+					connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
+					connectedList = connectedList + 'Position:          ' + position + '\n';
+					connectedList = connectedList + 'Hardware Version:  ' + hardwareVersion + '\n';
+					connectedList = connectedList + 'Firmware Version:  ' + firmwareVersion + '\n';
+					connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
+				}
 			}
 
 			connectedList += '\n';
@@ -76,13 +79,9 @@ module.exports.list = function (host, port, advanced, tableOutput) {
 
 	if (tableOutput) {
 		if (advanced) {
-			data = [
-				['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']
-			];
+			data.push(['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
 		} else {
-			data = [
-				['NAME', 'UID']
-			];
+			data.push(['NAME', 'UID']);
 		}
 	}
 
