@@ -23,4 +23,4 @@ if (program.port) {
 	port = program.port;
 }
 
-getConnected.list(port, host, program.advanced, program.table);
+getConnected.list(host, port, program.advanced, program.table);

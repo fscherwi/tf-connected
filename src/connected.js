@@ -72,7 +72,7 @@ function tfget(advanced, table) {
 		});
 }
 
-module.exports.list = function (port, host, advanced, table) {
+module.exports.list = function (host, port, advanced, table) {
 	tfinit(host, port);
 	tfget(advanced, table);
 
