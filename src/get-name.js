@@ -84,9 +84,5 @@ const namesArray = [
 ];
 
 module.exports.name = function (deviceIdentifier) {
-	function checkName(names) {
-		return names[0] === deviceIdentifier;
-	}
-
-	return namesArray.find(checkName)[1];
+	return namesArray.find(names => names[0] === deviceIdentifier)[1];
 };
