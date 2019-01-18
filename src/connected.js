@@ -1,10 +1,10 @@
 const Tinkerforge = require('tinkerforge');
 const {table} = require('table');
+const replaceString = require('replace-string');
 
 const getName = require('./get-name.js');
 
 let ipcon;
-let name = '';
 let connectedList = '';
 const data = [];
 
@@ -48,24 +48,22 @@ function tfinit(HOST, PORT) {
 function tfget(advanced, tableOutput) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			name = getName.name(deviceIdentifier);
-
 			if (!advanced && tableOutput) {
-				data.push([name, uid]);
+				data.push([getName.name(deviceIdentifier), uid]);
 			} else {
-				connectedList = connectedList + 'NAME: ' + name + '\n';
+				connectedList = connectedList + 'NAME: ' + getName.name(deviceIdentifier) + '\n';
 				connectedList = connectedList + 'UID : ' + uid + '\n';
 			}
 
 			if (advanced) {
 				if (tableOutput) {
-					data.push([name, uid, enumerationType, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier]);
+					data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
 				} else {
 					connectedList = connectedList + 'Enumeration Type: ' + enumerationType + '\n';
 					connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
 					connectedList = connectedList + 'Position:          ' + position + '\n';
-					connectedList = connectedList + 'Hardware Version:  ' + hardwareVersion + '\n';
-					connectedList = connectedList + 'Firmware Version:  ' + firmwareVersion + '\n';
+					connectedList = connectedList + 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n';
+					connectedList = connectedList + 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n';
 					connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
 				}
 			}
