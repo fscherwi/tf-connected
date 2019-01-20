@@ -1,6 +1,6 @@
 {
   "name": "tf-connected",
-  "version": "2.0.0-beta",
+  "version": "2.0.0",
   "description": "A Utility to show connected Tinkerforge Bricks and Bricklets!",
   "main": "./bin/command.js",
   "scripts": {
