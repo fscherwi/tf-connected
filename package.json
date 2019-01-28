@@ -4,7 +4,7 @@
   "description": "A Utility to show connected Tinkerforge Bricks and Bricklets!",
   "main": "./bin/command.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-lcov ava ",
+    "test": "nyc ava ",
     "lint": "xo"
   },
   "repository": {
@@ -26,11 +26,11 @@
   "dependencies": {
     "commander": "^2.19.0",
     "replace-string": "^2.0.0",
-    "table": "^5.2.1",
+    "table": "^5.2.2",
     "tinkerforge": "^2.1.21"
   },
   "devDependencies": {
-    "ava": "^1.1.0",
+    "ava": "^1.2.0",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.2",
     "nyc": "^13.1.0",
@@ -50,5 +50,11 @@
       "unicorn/no-process-exit": false,
       "max-params": 0
     }
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   }
 }
