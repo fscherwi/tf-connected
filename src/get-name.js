@@ -14,9 +14,11 @@ const namesArray = [
 	// BRICKLET'S
 
 	[Tinkerforge.BrickletAccelerometer.DEVICE_IDENTIFIER, Tinkerforge.BrickletAccelerometer.DEVICE_DISPLAY_NAME],
+	[Tinkerforge.BrickletAccelerometerV2.DEVICE_IDENTIFIER, Tinkerforge.BrickletAccelerometerV2.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAirQuality.DEVICE_IDENTIFIER, Tinkerforge.BrickletAirQuality.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAmbientLight.DEVICE_IDENTIFIER, Tinkerforge.BrickletAmbientLight.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAmbientLightV2.DEVICE_IDENTIFIER, Tinkerforge.BrickletAmbientLightV2.DEVICE_DISPLAY_NAME],
+	[Tinkerforge.BrickletAmbientLightV3.DEVICE_IDENTIFIER, Tinkerforge.BrickletAmbientLightV3.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAnalogIn.DEVICE_IDENTIFIER, Tinkerforge.BrickletAnalogIn.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAnalogInV2.DEVICE_IDENTIFIER, Tinkerforge.BrickletAnalogInV2.DEVICE_DISPLAY_NAME],
 	[Tinkerforge.BrickletAnalogOut.DEVICE_IDENTIFIER, Tinkerforge.BrickletAnalogOut.DEVICE_DISPLAY_NAME],
