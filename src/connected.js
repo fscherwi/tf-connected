@@ -8,32 +8,11 @@ let ipcon;
 let connectedList = '';
 const data = [];
 
-function errorOutput(code) {
-	switch (code) {
-		case 11:
-			return 'ALREADY CONNECTED';
-		case 12:
-			return 'NOT CONNECTED';
-		case 13:
-			return 'CONNECT FAILED';
-		case 21:
-			return 'INVALID FUNCTION ID';
-		case 31:
-			return 'TIMEOUT';
-		case 41:
-			return 'INVALID PARAMETER';
-		case 42:
-			return 'FUNCTION NOT SUPPORTED';
-		default:
-			return 'UNKNOWN';
-	}
-}
-
 function tfinit(HOST, PORT) {
 	ipcon = new Tinkerforge.IPConnection();
 	ipcon.connect(HOST, PORT,
 		error => {
-			console.log('Error: ' + errorOutput(error));
+			console.error('Error: ' + require('./error.js').error(error));
 			process.exit(1);
 		}
 	);
