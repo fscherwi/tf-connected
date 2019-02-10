@@ -71,5 +71,5 @@ module.exports.list = function (host, port, advanced, tableOutput) {
 		} else {
 			console.log(connectedList);
 		}
-	}, 100);
+	}, 25);
 };
