@@ -27,19 +27,17 @@ function tfinit(HOST, PORT) {
 function tfget(advanced, tableOutput) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			if (advanced) {
-				if (tableOutput) {
-					data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
-				} else {
-					connectedList = connectedList + 'NAME:              ' + getName.name(deviceIdentifier) + '\n';
-					connectedList = connectedList + 'UID:               ' + uid + '\n';
-					connectedList = connectedList + 'Enumeration Type:  ' + enumerationType + '\n';
-					connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
-					connectedList = connectedList + 'Position:          ' + position + '\n';
-					connectedList = connectedList + 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n';
-					connectedList = connectedList + 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n';
-					connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
-				}
+			if (advanced && tableOutput) {
+				data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
+			} else if (advanced) {
+				connectedList = connectedList + 'NAME:              ' + getName.name(deviceIdentifier) + '\n';
+				connectedList = connectedList + 'UID:               ' + uid + '\n';
+				connectedList = connectedList + 'Enumeration Type:  ' + enumerationType + '\n';
+				connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
+				connectedList = connectedList + 'Position:          ' + position + '\n';
+				connectedList = connectedList + 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n';
+				connectedList = connectedList + 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n';
+				connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
 			} else if (tableOutput) {
 				data.push([getName.name(deviceIdentifier), uid]);
 			} else {
