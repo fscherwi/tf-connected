@@ -27,7 +27,7 @@ function tfinit(HOST, PORT) {
 function tfget(advanced, tableOutput) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
 		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			if (advanced && tableOutput) {
+			if (tableOutput && advanced) {
 				data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
 			} else if (advanced) {
 				connectedList = connectedList + 'NAME:              ' + getName.name(deviceIdentifier) + '\n';
@@ -52,12 +52,10 @@ function tfget(advanced, tableOutput) {
 module.exports.list = function (host, port, advanced, tableOutput) {
 	tfinit(host, port);
 
-	if (tableOutput) {
-		if (advanced) {
-			data.push(['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
-		} else {
-			data.push(['NAME', 'UID']);
-		}
+	if (tableOutput && advanced) {
+		data.push(['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
+	} else if (tableOutput) {
+		data.push(['NAME', 'UID']);
 	}
 
 	tfget(advanced, tableOutput);
