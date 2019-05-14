@@ -24,16 +24,16 @@
   },
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
-    "commander": "^2.19.0",
+    "commander": "^2.20.0",
     "replace-string": "^3.0.0",
-    "table": "^5.2.3",
+    "table": "^5.3.3",
     "tinkerforge": "^2.1.22"
   },
   "devDependencies": {
-    "ava": "^1.4.0",
+    "ava": "^2.0.0-beta.1",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.3",
-    "nyc": "^14.0.0",
+    "nyc": "^14.1.1",
     "xo": "^0.24.0"
   },
   "preferGlobal": true,
