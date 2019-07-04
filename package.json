@@ -5,7 +5,9 @@
   "main": "./bin/command.js",
   "scripts": {
     "test": "nyc ava ",
-    "lint": "xo"
+    "lint": "xo",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,8 @@
     "commander": "^2.20.0",
     "replace-string": "^3.0.0",
     "table": "^5.4.0",
-    "tinkerforge": "^2.1.23"
+    "tinkerforge": "^2.1.23",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "ava": "^2.0.0",
@@ -57,5 +60,6 @@
       "lcov",
       "text"
     ]
-  }
+  },
+  "snyk": true
 }
