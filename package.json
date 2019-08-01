@@ -26,7 +26,7 @@
   "dependencies": {
     "commander": "^2.20.0",
     "replace-string": "^3.0.0",
-    "table": "^5.4.1",
+    "table": "^5.4.5",
     "tinkerforge": "^2.1.23"
   },
   "devDependencies": {
