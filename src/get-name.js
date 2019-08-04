@@ -100,6 +100,6 @@ const namesArray = [
 	[Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER, Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME]
 ];
 
-module.exports.name = function (deviceIdentifier) {
+module.exports.name = deviceIdentifier => {
 	return namesArray.find(names => names[0] === deviceIdentifier)[1];
 };

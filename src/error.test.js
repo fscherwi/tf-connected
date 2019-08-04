@@ -29,6 +29,7 @@ test('Error Code 41', t => {
 test('Error Code 42', t => {
 	t.is(errorOutput.error(42), 'FUNCTION NOT SUPPORTED');
 });
+
 test('Unknown Error Code', t => {
 	t.is(errorOutput.error(123), 'UNKNOWN');
 });

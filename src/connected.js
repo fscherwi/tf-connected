@@ -1,5 +1,5 @@
 const Tinkerforge = require('tinkerforge');
-const {table} = require('table');
+const table = require('table');
 const replaceString = require('replace-string');
 
 const getName = require('./get-name.js');
@@ -9,10 +9,11 @@ let connectedList = '';
 const data = [];
 
 function tfinit(HOST, PORT) {
+	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 	ipcon = new Tinkerforge.IPConnection();
 	ipcon.connect(HOST, PORT,
 		error => {
-			console.error('Error: ' + require('./error.js').error(error));
+			console.error('Error: %s\n', require('./error.js').error(error));
 			process.exit(1);
 		}
 	);
@@ -21,7 +22,6 @@ function tfinit(HOST, PORT) {
 			ipcon.enumerate();
 		}
 	);
-	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 }
 
 function tfget(advanced, tableOutput) {
@@ -49,7 +49,7 @@ function tfget(advanced, tableOutput) {
 		});
 }
 
-module.exports.list = function (host, port, advanced, tableOutput) {
+module.exports.list = (host = 'localhost', port = 4223, advanced, tableOutput) => {
 	tfinit(host, port);
 
 	if (tableOutput && advanced) {

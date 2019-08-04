@@ -12,15 +12,4 @@ program
 	.option('-p, --port [port]', 'The PORT, default to "4223"', parseInt)
 	.parse(process.argv);
 
-let host = 'localhost';
-let port = 4223;
-
-if (program.host) {
-	host = program.host;
-}
-
-if (program.port) {
-	port = program.port;
-}
-
-getConnected.list(host, port, program.advanced, program.table);
+getConnected.list(program.host, program.port, program.advanced, program.table);

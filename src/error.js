@@ -1,4 +1,4 @@
-module.exports.error = function (code) {
+module.exports.error = code => {
 	switch (code) {
 		case 11:
 			return 'ALREADY CONNECTED';
