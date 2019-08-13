@@ -1,5 +1,5 @@
 const Tinkerforge = require('tinkerforge');
-const table = require('table');
+const {table} = require('table');
 const replaceString = require('replace-string');
 
 const getName = require('./get-name.js');
@@ -11,42 +11,35 @@ const data = [];
 function tfinit(HOST, PORT) {
 	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', HOST, PORT);
 	ipcon = new Tinkerforge.IPConnection();
-	ipcon.connect(HOST, PORT,
-		error => {
-			console.error('Error: %s\n', require('./error.js').error(error));
-			process.exit(1);
-		}
-	);
-	ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-		() => {
-			ipcon.enumerate();
-		}
-	);
+	ipcon.connect(HOST, PORT, error => {
+		console.error('Error: %s\n', require('./error.js').error(error));
+		process.exit(1);
+	});
+	ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED, () => {
+		ipcon.enumerate();
+	});
 }
 
 function tfget(advanced, tableOutput) {
-	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE,
-		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-			if (tableOutput && advanced) {
-				data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
-			} else if (advanced) {
-				connectedList = connectedList + 'NAME:              ' + getName.name(deviceIdentifier) + '\n';
-				connectedList = connectedList + 'UID:               ' + uid + '\n';
-				connectedList = connectedList + 'Enumeration Type:  ' + enumerationType + '\n';
-				connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
-				connectedList = connectedList + 'Position:          ' + position + '\n';
-				connectedList = connectedList + 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n';
-				connectedList = connectedList + 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n';
-				connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n';
-			} else if (tableOutput) {
-				data.push([getName.name(deviceIdentifier), uid]);
-			} else {
-				connectedList = connectedList + 'NAME: ' + getName.name(deviceIdentifier) + '\n';
-				connectedList = connectedList + 'UID:  ' + uid + '\n';
-			}
-
-			connectedList += '\n';
-		});
+	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
+		if (tableOutput && advanced) {
+			data.push([getName.name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
+		} else if (advanced) {
+			connectedList = connectedList + 'NAME:              ' + getName.name(deviceIdentifier) + '\n';
+			connectedList = connectedList + 'UID:               ' + uid + '\n';
+			connectedList = connectedList + 'Enumeration Type:  ' + enumerationType + '\n';
+			connectedList = connectedList + 'Connected UID:     ' + connectedUid + '\n';
+			connectedList = connectedList + 'Position:          ' + position + '\n';
+			connectedList = connectedList + 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n';
+			connectedList = connectedList + 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n';
+			connectedList = connectedList + 'Device Identifier: ' + deviceIdentifier + '\n\n';
+		} else if (tableOutput) {
+			data.push([getName.name(deviceIdentifier), uid]);
+		} else {
+			connectedList = connectedList + 'NAME: ' + getName.name(deviceIdentifier) + '\n';
+			connectedList = connectedList + 'UID:  ' + uid + '\n\n';
+		}
+	});
 }
 
 module.exports.list = (host = 'localhost', port = 4223, advanced, tableOutput) => {
