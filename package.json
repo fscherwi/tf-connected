@@ -26,11 +26,11 @@
   "dependencies": {
     "commander": "^3.0.0",
     "replace-string": "^3.0.0",
-    "table": "^5.4.5",
-    "tinkerforge": "^2.1.23"
+    "table": "^5.4.6",
+    "tinkerforge": "^2.1.24"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^2.3.0",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.6",
     "nyc": "^14.1.1",
