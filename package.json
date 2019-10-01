@@ -48,7 +48,7 @@
   ],
   "xo": {
     "rules": {
-      "unicorn/no-process-exit": false,
+      "unicorn/no-process-exit": 0,
       "max-params": 0
     }
   },
