@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
-    "commander": "^3.0.1",
+    "commander": "^3.0.2",
     "replace-string": "^3.0.0",
     "table": "^5.4.6",
     "tinkerforge": "^2.1.24"
