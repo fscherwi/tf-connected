@@ -1,5 +1,5 @@
 const Tinkerforge = require('tinkerforge');
-const { table } = require('table');
+const {table} = require('table');
 const replaceString = require('replace-string');
 
 const getName = require('./get-name.js');
