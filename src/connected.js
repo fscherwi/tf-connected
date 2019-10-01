@@ -1,5 +1,5 @@
 const Tinkerforge = require('tinkerforge');
-const {table} = require('table');
+const { table } = require('table');
 const replaceString = require('replace-string');
 
 const getName = require('./get-name.js');
@@ -42,7 +42,7 @@ function tfget(advanced, tableOutput) {
 	});
 }
 
-module.exports.list = (host = 'localhost', port = 4223, advanced, tableOutput) => {
+module.exports.list = (host = 'localhost', port = 4223, advanced = false, tableOutput = false) => {
 	tfinit(host, port);
 
 	if (tableOutput && advanced) {
