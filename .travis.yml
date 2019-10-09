@@ -4,14 +4,22 @@ os:
 language: node_js
 node_js:
   - "node"
+  - "--lts"
 notifications:
   email: false
 cache: npm
 install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://download.tinkerforge.com/tools/brickd/linux/brickd_linux_latest_amd64.deb && sudo dpkg -i brickd_linux_latest_amd64.deb; fi
   - npm ci
 script:
   - npm run lint
   - npm run test
+  - node bin/command.js
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+addons:
+  apt:
+    packages:
+      - libusb-1.0-0
+      - pm-utils
