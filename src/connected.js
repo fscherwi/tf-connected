@@ -29,14 +29,14 @@ function tfinit(host, port) {
  *
  * @param {object} ipcon Tinkerforge IP Connection
  * @param {boolean} advanced Show advanced informations
- * @returns {string} Information as String
+ * @returns {string} Informations as String
  */
 function tfgetList(ipcon, advanced) {
 	return new Promise(resolve => {
 		let connectedList = '';
 		ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 			if (advanced) {
-				connectedList = connectedList + 'Name:              ' + name(deviceIdentifier) + '\n' +
+				connectedList += 'Name:              ' + name(deviceIdentifier) + '\n' +
 					'UID:               ' + uid + '\n' +
 					'Enumeration Type:  ' + enumerationType + '\n' +
 					'Connected UID:     ' + connectedUid + '\n' +
@@ -45,7 +45,7 @@ function tfgetList(ipcon, advanced) {
 					'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n' +
 					'Device Identifier: ' + deviceIdentifier + '\n\n';
 			} else {
-				connectedList = connectedList + 'Name: ' + name(deviceIdentifier) + '\n' +
+				connectedList += 'Name: ' + name(deviceIdentifier) + '\n' +
 					'UID:  ' + uid + '\n\n';
 			}
 		});
