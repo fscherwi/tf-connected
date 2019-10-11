@@ -57,6 +57,9 @@
     ],
     "extends": ["plugin:jsdoc/recommended"]
   },
+  "engines": {
+    "node": ">=8"
+  },
   "nyc": {
     "reporter": [
       "lcov"

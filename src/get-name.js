@@ -100,7 +100,7 @@ const namesArray = [
 ];
 
 /**
- * Get the Brick/Bricklet from the deviceIdentifier
+ * Get the Brick/Bricklet name from the deviceIdentifier
  *
  * @param {string} deviceIdentifier Brick/Bricklet deviceIdentifier
  * @returns {string} Brick/Bricklet name

@@ -4,9 +4,6 @@ const replaceString = require('replace-string');
 const {name} = require('./get-name.js');
 const {errorText} = require('./error-text.js');
 
-let connectedList = '';
-const data = [];
-
 /**
  * Initialize Tinkerforge Connection
  *
@@ -32,28 +29,55 @@ function tfinit(host, port) {
  *
  * @param {object} ipcon Tinkerforge IP Connection
  * @param {boolean} advanced Show advanced informations
- * @param {boolean} tableOutput Show as table
+ * @returns {string} Information as String
  */
-function tfget(ipcon, advanced, tableOutput) {
+function tfgetList(ipcon, advanced) {
+	return new Promise(resolve => {
+		let connectedList = '';
+		ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
+			if (advanced) {
+				connectedList = connectedList + 'NAME:              ' + name(deviceIdentifier) + '\n' +
+					'UID:               ' + uid + '\n' +
+					'Enumeration Type:  ' + enumerationType + '\n' +
+					'Connected UID:     ' + connectedUid + '\n' +
+					'Position:          ' + position + '\n' +
+					'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n' +
+					'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n' +
+					'Device Identifier: ' + deviceIdentifier + '\n\n';
+			} else {
+				connectedList = connectedList + 'NAME: ' + name(deviceIdentifier) + '\n' +
+					'UID:  ' + uid + '\n\n';
+			}
+		});
+		setTimeout(() => {
+			resolve(connectedList);
+		}, 50);
+	});
+}
+
+/**
+ * Get Information from the connected Bricks/Bricklets
+ *
+ * @param {object} ipcon Tinkerforge IP Connection
+ * @param {boolean} advanced Show advanced informations
+ * @returns {string[]} Information as Array
+ */
+function tfgetTable(ipcon, advanced) {
+	const data = [];
+	if (advanced) {
+		data.push(['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
+	} else {
+		data.push(['NAME', 'UID']);
+	}
+
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
-		if (tableOutput && advanced) {
+		if (advanced) {
 			data.push([name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
-		} else if (advanced) {
-			connectedList = connectedList + 'NAME:              ' + name(deviceIdentifier) + '\n' +
-				'UID:               ' + uid + '\n' +
-				'Enumeration Type:  ' + enumerationType + '\n' +
-				'Connected UID:     ' + connectedUid + '\n' +
-				'Position:          ' + position + '\n' +
-				'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n' +
-				'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n' +
-				'Device Identifier: ' + deviceIdentifier + '\n\n';
-		} else if (tableOutput) {
-			data.push([name(deviceIdentifier), uid]);
 		} else {
-			connectedList = connectedList + 'NAME: ' + name(deviceIdentifier) + '\n' +
-				'UID:  ' + uid + '\n\n';
+			data.push([name(deviceIdentifier), uid]);
 		}
 	});
+	return data;
 }
 
 /**
@@ -62,25 +86,20 @@ function tfget(ipcon, advanced, tableOutput) {
  * @param {boolean} advanced Show advanced informations
  * @param {boolean} tableOutput Show as table
  */
-function list(host = 'localhost', port = 4223, advanced = false, tableOutput = false) {
+async function list(host = 'localhost', port = 4223, advanced = false, tableOutput = false) {
 	const ipcon = tfinit(host, port);
 
-	if (tableOutput && advanced) {
-		data.push(['NAME', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
-	} else if (tableOutput) {
-		data.push(['NAME', 'UID']);
-	}
-
-	tfget(ipcon, advanced, tableOutput);
-
-	setTimeout(() => {
-		ipcon.disconnect();
-		if (tableOutput) {
+	if (tableOutput) {
+		const data = tfgetTable(ipcon, advanced);
+		setTimeout(() => {
+			ipcon.disconnect();
 			console.log(table(data));
-		} else {
-			console.log(connectedList);
-		}
-	}, 25);
+		}, 25);
+	} else {
+		const connectedList = await tfgetList(ipcon, advanced);
+		ipcon.disconnect();
+		console.log(connectedList);
+	}
 }
 
 module.exports.list = list;
