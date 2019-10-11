@@ -1,4 +1,3 @@
-/* istanbul ignore next */
 const Tinkerforge = require('tinkerforge');
 
 const namesArray = [
@@ -100,6 +99,8 @@ const namesArray = [
 	[Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER, Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME]
 ];
 
-module.exports.name = deviceIdentifier => {
+function name(deviceIdentifier) {
 	return namesArray.find(names => names[0] === deviceIdentifier)[1];
-};
+}
+
+module.exports.name = name;

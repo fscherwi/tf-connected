@@ -14,7 +14,7 @@ install:
 script:
   - npm run lint
   - npm run test
-  - node bin/command.js
+  - node bin/tf-connected.js
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage

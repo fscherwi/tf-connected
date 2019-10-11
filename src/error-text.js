@@ -1,4 +1,4 @@
-module.exports.error = code => {
+function errorText(code) {
 	switch (code) {
 		case 11:
 			return 'ALREADY CONNECTED';
@@ -17,4 +17,6 @@ module.exports.error = code => {
 		default:
 			return 'UNKNOWN';
 	}
-};
+}
+
+module.exports.errorText = errorText;

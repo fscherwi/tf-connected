@@ -2,7 +2,7 @@
   "name": "tf-connected",
   "version": "2.1.5",
   "description": "A Utility to show connected Tinkerforge Bricks and Bricklets!",
-  "main": "./bin/command.js",
+  "main": "./bin/tf-connected.js",
   "scripts": {
     "test": "nyc ava ",
     "lint": "xo"
@@ -32,19 +32,19 @@
   "devDependencies": {
     "ava": "^2.4.0",
     "codacy-coverage": "^3.4.0",
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.7",
     "nyc": "^14.1.1",
     "xo": "^0.25.3"
   },
   "preferGlobal": true,
   "bin": {
-    "tf-connected": "./bin/command.js"
+    "tf-connected": "./bin/tf-connected.js"
   },
   "files": [
     "src/connected.js",
     "src/get-name.js",
-    "bin/command.js",
-    "src/error.js"
+    "bin/tf-connected.js",
+    "src/error-text.js"
   ],
   "xo": {
     "rules": {
