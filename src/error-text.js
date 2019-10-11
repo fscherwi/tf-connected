@@ -1,3 +1,9 @@
+/**
+ * Get the error text
+ *
+ * @param {number} code error code
+ * @returns {string} error text
+ */
 function errorText(code) {
 	switch (code) {
 		case 11:

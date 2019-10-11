@@ -7,10 +7,17 @@ const {errorText} = require('./error-text.js');
 let connectedList = '';
 const data = [];
 
-function tfinit(HOST, PORT) {
-	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', HOST, PORT);
+/**
+ * Initialize Tinkerforge Connection
+ *
+ * @param {string} host Tinkerforge connection HOST
+ * @param {number} port Tinkerforge connection PORT
+ * @returns {object} Tinkerforge IP Connection
+ */
+function tfinit(host, port) {
+	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', host, port);
 	const ipcon = new Tinkerforge.IPConnection();
-	ipcon.connect(HOST, PORT, error => {
+	ipcon.connect(host, port, error => {
 		console.error('Error: %s\n', errorText(error));
 		process.exit();
 	});
@@ -20,6 +27,13 @@ function tfinit(HOST, PORT) {
 	return ipcon;
 }
 
+/**
+ * Get Information from the connected Bricks/Bricklets
+ *
+ * @param {object} ipcon Tinkerforge IP Connection
+ * @param {boolean} advanced Show advanced informations
+ * @param {boolean} tableOutput Show as table
+ */
 function tfget(ipcon, advanced, tableOutput) {
 	ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 		if (tableOutput && advanced) {
@@ -42,6 +56,12 @@ function tfget(ipcon, advanced, tableOutput) {
 	});
 }
 
+/**
+ * @param {string} host Tinkerforge connection HOST
+ * @param {number} port Tinkerforge connection PORT
+ * @param {boolean} advanced Show advanced informations
+ * @param {boolean} tableOutput Show as table
+ */
 function list(host = 'localhost', port = 4223, advanced = false, tableOutput = false) {
 	const ipcon = tfinit(host, port);
 

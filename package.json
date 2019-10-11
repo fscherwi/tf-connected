@@ -33,6 +33,7 @@
     "ava": "^2.4.0",
     "codacy-coverage": "^3.4.0",
     "coveralls": "^3.0.7",
+    "eslint-plugin-jsdoc": "^15.10.0",
     "nyc": "^14.1.1",
     "xo": "^0.25.3"
   },
@@ -50,7 +51,11 @@
     "rules": {
       "unicorn/no-process-exit": 0,
       "max-params": 0
-    }
+    },
+    "plugins": [
+      "jsdoc"
+    ],
+    "extends": ["plugin:jsdoc/recommended"]
   },
   "nyc": {
     "reporter": [

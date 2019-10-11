@@ -99,6 +99,12 @@ const namesArray = [
 	[Tinkerforge.BrickletVoltageCurrent.DEVICE_IDENTIFIER, Tinkerforge.BrickletVoltageCurrent.DEVICE_DISPLAY_NAME]
 ];
 
+/**
+ * Get the Brick/Bricklet from the deviceIdentifier
+ *
+ * @param {string} deviceIdentifier Brick/Bricklet deviceIdentifier
+ * @returns {string} Brick/Bricklet name
+ */
 function name(deviceIdentifier) {
 	return namesArray.find(names => names[0] === deviceIdentifier)[1];
 }
