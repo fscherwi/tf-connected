@@ -1,8 +1,8 @@
 const Tinkerforge = require('tinkerforge');
-const { table } = require('table');
+const {table} = require('table');
 const replaceString = require('replace-string');
-const { name } = require('./get-name.js');
-const { errorText } = require('./error-text.js');
+const {name} = require('./get-name.js');
+const {errorText} = require('./error-text.js');
 
 /**
  * Initialize Tinkerforge Connection
@@ -75,6 +75,7 @@ function tfgetTable(ipcon, advanced) {
 			data.push([name(deviceIdentifier), uid]);
 		});
 	}
+
 	return data;
 }
 
@@ -94,10 +95,10 @@ function list(host = 'localhost', port = 4223, advanced = false, tableOutput = f
 			console.log(table(data));
 		}, 25);
 	} else {
-		tfgetList(ipcon, advanced).then((connectedList) => {
+		tfgetList(ipcon, advanced).then(connectedList => {
 			ipcon.disconnect();
 			console.log(connectedList);
-		})
+		});
 	}
 }
 
