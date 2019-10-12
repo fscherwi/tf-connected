@@ -4,7 +4,7 @@
   "description": "A Utility to show connected Tinkerforge Bricks and Bricklets!",
   "main": "./bin/tf-connected.js",
   "scripts": {
-    "test": "nyc ava ",
+    "test": "nyc ava",
     "lint": "xo"
   },
   "repository": {
