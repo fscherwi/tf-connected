@@ -1,18 +1,18 @@
 import test from 'ava';
 
-const Tinkerforge = require('tinkerforge');
-const {name} = require('./get-name.js');
+import {BrickMaster, BrickRED, BrickletAccelerometerV2} from 'tinkerforge';
+import {name} from './get-name';
 
 test('Brick Master', t => {
-	t.is(name(Tinkerforge.BrickMaster.DEVICE_IDENTIFIER), Tinkerforge.BrickMaster.DEVICE_DISPLAY_NAME);
+	t.is(name(BrickMaster.DEVICE_IDENTIFIER), BrickMaster.DEVICE_DISPLAY_NAME);
 });
 
 test('Brick RED', t => {
-	t.is(name(Tinkerforge.BrickRED.DEVICE_IDENTIFIER), Tinkerforge.BrickRED.DEVICE_DISPLAY_NAME);
+	t.is(name(BrickRED.DEVICE_IDENTIFIER), BrickRED.DEVICE_DISPLAY_NAME);
 });
 
 test('Bricklet Accelerometer V2', t => {
-	t.is(name(Tinkerforge.BrickletAccelerometerV2.DEVICE_IDENTIFIER), Tinkerforge.BrickletAccelerometerV2.DEVICE_DISPLAY_NAME);
+	t.is(name(BrickletAccelerometerV2.DEVICE_IDENTIFIER), BrickletAccelerometerV2.DEVICE_DISPLAY_NAME);
 });
 
 test('unknown Brick/Bricklet name', t => {

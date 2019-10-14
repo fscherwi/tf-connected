@@ -1,6 +1,6 @@
 import test from 'ava';
 
-const {errorText} = require('./error-text.js');
+import {errorText} from './error-text';
 
 test('Error Code 11', t => {
 	t.is(errorText(11), 'ALREADY CONNECTED');

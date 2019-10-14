@@ -86,16 +86,21 @@ function tfgetTable(ipcon, advanced) {
  * @param {boolean} tableOutput Show as table
  */
 async function list(host = 'localhost', port = 4223, advanced = false, tableOutput = false) {
-	const ipcon = tfinit(host, port);
+	if (port >= 0 && port < 65536) {
+		const ipcon = tfinit(host, port);
 
-	if (tableOutput) {
-		const data = await tfgetTable(ipcon, advanced);
-		ipcon.disconnect();
-		console.log(table(data));
+		if (tableOutput) {
+			const data = await tfgetTable(ipcon, advanced);
+			ipcon.disconnect();
+			console.log(table(data));
+		} else {
+			const connectedList = await tfgetList(ipcon, advanced);
+			ipcon.disconnect();
+			console.log(connectedList);
+		}
 	} else {
-		const connectedList = await tfgetList(ipcon, advanced);
-		ipcon.disconnect();
-		console.log(connectedList);
+		console.error('\nPlease check your inserted PORT\n');
+		process.exit(1);
 	}
 }
 
