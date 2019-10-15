@@ -4,7 +4,7 @@
  * @param {number} code error code
  * @returns {string} error text
  */
-function errorText(code) {
+module.exports.errorText = code => {
 	switch (code) {
 		case 11:
 			return 'ALREADY CONNECTED';
@@ -23,6 +23,4 @@ function errorText(code) {
 		default:
 			return 'UNKNOWN';
 	}
-}
-
-module.exports.errorText = errorText;
+};

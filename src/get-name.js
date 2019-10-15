@@ -147,9 +147,7 @@ const namesArray = [
  * @param {string} deviceIdentifier Brick/Bricklet deviceIdentifier
  * @returns {string} Brick/Bricklet name
  */
-function name(deviceIdentifier) {
+module.exports.name = deviceIdentifier => {
 	const name = namesArray.find(names => names[0] === deviceIdentifier);
 	return name ? name[1] : 'unknown';
-}
-
-module.exports.name = name;
+};
