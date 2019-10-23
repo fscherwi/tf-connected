@@ -45,10 +45,10 @@ function tfgetList(ipcon, advanced) {
 					'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n' +
 					'Device Identifier: ' + deviceIdentifier + '\n\n';
 			} else {
-				connectedList += 'Name: ' + name(deviceIdentifier) + '\n' +
-					'UID:  ' + uid + '\n\n';
+				connectedList += 'Name: ' + name(deviceIdentifier) + '\nUID:  ' + uid + '\n\n';
 			}
 		});
+
 		setTimeout(() => resolve(connectedList), 100);
 	});
 }
@@ -88,7 +88,6 @@ function tfgetTable(ipcon, advanced) {
 module.exports.list = async (host = 'localhost', port = 4223, advanced = false, tableOutput = false) => {
 	if (port >= 0 && port < 65536) {
 		const ipcon = tfinit(host, port);
-
 		if (tableOutput) {
 			const data = await tfgetTable(ipcon, advanced);
 			ipcon.disconnect();
