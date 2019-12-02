@@ -27,7 +27,7 @@
     "commander": "^4.0.1",
     "replace-string": "^3.0.0",
     "table": "^5.4.6",
-    "tinkerforge": "^2.1.24"
+    "tinkerforge": "^2.1.25"
   },
   "devDependencies": {
     "ava": "^2.4.0",
