@@ -1,7 +1,7 @@
-import test from 'ava';
+const test = require('ava');
 
-import {BrickMaster, BrickRED, BrickletAccelerometerV2} from 'tinkerforge';
-import {name} from './get-name';
+const {BrickMaster, BrickRED, BrickletAccelerometerV2} = require('tinkerforge');
+const {name} = require('./get-name');
 
 test('Brick Master', t => {
 	t.is(name(BrickMaster.DEVICE_IDENTIFIER), BrickMaster.DEVICE_DISPLAY_NAME);

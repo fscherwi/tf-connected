@@ -30,7 +30,6 @@
     "tinkerforge": "^2.1.25"
   },
   "devDependencies": {
-    "@ava/babel": "^1.0.1",
     "ava": "^3.5.0",
     "coveralls": "^3.0.9",
     "eslint-plugin-jsdoc": "^22.0.1",
@@ -66,8 +65,5 @@
     "reporter": [
       "lcov"
     ]
-  },
-  "ava": {
-    "babel": true
   }
 }

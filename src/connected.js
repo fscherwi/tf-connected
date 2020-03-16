@@ -1,8 +1,8 @@
 const Tinkerforge = require('tinkerforge');
 const {table} = require('table');
 const replaceString = require('replace-string');
-const {name} = require('./get-name.js');
-const {errorText} = require('./error-text.js');
+const {name} = require('./get-name');
+const {errorText} = require('./error-text');
 
 /**
  * Initialize Tinkerforge Connection
