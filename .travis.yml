@@ -17,7 +17,7 @@ script:
   - node bin/tf-connected.js
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+  - cat ./coverage/lcov.info | bash <(curl -Ls https://coverage.codacy.com/get.sh)
 addons:
   apt:
     packages:
