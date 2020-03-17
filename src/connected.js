@@ -86,14 +86,14 @@ function tfgetTable(ipcon, advanced) {
  * @param {boolean} tableOutput Show as table
  */
 module.exports.list = async (host = 'localhost', port = 4223, advanced = false, tableOutput = false) => {
-		const ipcon = tfinit(host, port);
-		if (tableOutput) {
-			const data = await tfgetTable(ipcon, advanced);
-			ipcon.disconnect();
-			console.log(table(data));
-		} else {
-			const connectedList = await tfgetList(ipcon, advanced);
-			ipcon.disconnect();
-			console.log(connectedList);
-		}
+	const ipcon = tfinit(host, port);
+	if (tableOutput) {
+		const data = await tfgetTable(ipcon, advanced);
+		ipcon.disconnect();
+		console.log(table(data));
+	} else {
+		const connectedList = await tfgetList(ipcon, advanced);
+		ipcon.disconnect();
+		console.log(connectedList);
+	}
 };

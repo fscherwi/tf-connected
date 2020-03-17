@@ -11,7 +11,7 @@ program
 	.option('-p, --port [port]', 'The PORT, default to "4223"')
 	.parse(process.argv);
 
-if (port >= 0 && port < 65536) {
+if (program.port >= 0 && program.port < 65536) {
 	require('../src/connected.js').list(program.host, program.port, program.advanced, program.table);
 } else {
 	console.error('\nPlease check your inserted PORT\n');
