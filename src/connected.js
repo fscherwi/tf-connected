@@ -86,7 +86,6 @@ function tfgetTable(ipcon, advanced) {
  * @param {boolean} tableOutput Show as table
  */
 module.exports.list = async (host = 'localhost', port = 4223, advanced = false, tableOutput = false) => {
-	if (port >= 0 && port < 65536) {
 		const ipcon = tfinit(host, port);
 		if (tableOutput) {
 			const data = await tfgetTable(ipcon, advanced);
@@ -97,8 +96,4 @@ module.exports.list = async (host = 'localhost', port = 4223, advanced = false, 
 			ipcon.disconnect();
 			console.log(connectedList);
 		}
-	} else {
-		console.error('\nPlease check your inserted PORT\n');
-		process.exit(1);
-	}
 };
