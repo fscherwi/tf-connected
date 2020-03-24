@@ -30,9 +30,9 @@
     "tinkerforge": "^2.1.25"
   },
   "devDependencies": {
-    "ava": "^3.5.0",
-    "coveralls": "^3.0.9",
-    "eslint-plugin-jsdoc": "^22.0.1",
+    "ava": "^3.5.1",
+    "coveralls": "^3.0.11",
+    "eslint-plugin-jsdoc": "^22.1.0",
     "nyc": "^15.0.0",
     "xo": "^0.28.0"
   },
@@ -51,9 +51,6 @@
       "unicorn/no-process-exit": 0,
       "max-params": 0
     },
-    "plugins": [
-      "jsdoc"
-    ],
     "extends": [
       "plugin:jsdoc/recommended"
     ]
