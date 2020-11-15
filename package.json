@@ -26,7 +26,7 @@
   "dependencies": {
     "commander": "^6.2.0",
     "replace-string": "^3.1.0",
-    "table": "^5.4.6",
+    "table": "^6.0.3",
     "tinkerforge": "^2.1.30"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     ]
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "nyc": {
     "reporter": [
