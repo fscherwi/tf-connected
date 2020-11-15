@@ -38,7 +38,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "tf-connected": "./bin/tf-connected.js"
+    "tf-connected": "bin/tf-connected.js"
   },
   "files": [
     "src/connected.js",
@@ -49,6 +49,7 @@
   "xo": {
     "rules": {
       "unicorn/no-process-exit": 0,
+      "unicorn/prefer-ternary": 0,
       "max-params": 0
     },
     "extends": [
