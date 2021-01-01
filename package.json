@@ -30,7 +30,7 @@
     "tinkerforge": "^2.1.31"
   },
   "devDependencies": {
-    "ava": "^3.13.0",
+    "ava": "^3.14.0",
     "coveralls": "^3.1.0",
     "eslint-plugin-jsdoc": "^30.7.9",
     "nyc": "^15.1.0",
