@@ -1,11 +1,13 @@
+const Tinkerforge = require('tinkerforge');
+
 const errors = [
-	[11, 'ALREADY CONNECTED'],
-	[12, 'NOT CONNECTED'],
-	[13, 'CONNECT FAILED'],
-	[21, 'INVALID FUNCTION ID'],
-	[31, 'TIMEOUT'],
-	[41, 'INVALID PARAMETER'],
-	[42, 'FUNCTION NOT SUPPORTED']
+	{code: Tinkerforge.IPConnection.ERROR_ALREADY_CONNECTED, message: 'ALREADY CONNECTED'},
+	{code: Tinkerforge.IPConnection.ERROR_NOT_CONNECTED, message: 'NOT CONNECTED'},
+	{code: Tinkerforge.IPConnection.ERROR_CONNECT_FAILED, message: 'CONNECT FAILED'},
+	{code: Tinkerforge.IPConnection.ERROR_INVALID_FUNCTION_ID, message: 'INVALID FUNCTION ID'},
+	{code: Tinkerforge.IPConnection.ERROR_TIMEOUT, message: 'TIMEOUT'},
+	{code: Tinkerforge.IPConnection.ERROR_INVALID_PARAMETER, message: 'INVALID PARAMETER'},
+	{code: Tinkerforge.IPConnection.ERROR_FUNCTION_NOT_SUPPORTED, message: 'FUNCTION NOT SUPPORTED'}
 ];
 
 /**
@@ -15,6 +17,6 @@ const errors = [
  * @returns {string} error text
  */
 module.exports.errorText = code => {
-	const error = errors.find(errors => errors[0] === code);
-	return error ? error[1] : 'UNKNOWN';
+	const error = errors.find(errors => errors.code === code);
+	return error ? error.message : 'UNKNOWN';
 };
