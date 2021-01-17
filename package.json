@@ -24,17 +24,17 @@
   },
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
-    "commander": "^6.2.1",
+    "commander": "^7.0.0",
     "replace-string": "^3.1.0",
-    "table": "^6.0.4",
-    "tinkerforge": "^2.1.31"
+    "table": "^6.0.7",
+    "tinkerforge": "^2.1.32"
   },
   "devDependencies": {
-    "ava": "^3.14.0",
+    "ava": "^3.15.0",
     "coveralls": "^3.1.0",
-    "eslint-plugin-jsdoc": "^30.7.9",
+    "eslint-plugin-jsdoc": "^31.0.6",
     "nyc": "^15.1.0",
-    "xo": "^0.36.1"
+    "xo": "^0.37.1"
   },
   "preferGlobal": true,
   "bin": {
