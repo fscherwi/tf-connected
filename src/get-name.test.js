@@ -1,7 +1,7 @@
 const test = require('ava');
 
-const {BrickMaster, BrickRED, BrickletAccelerometerV2} = require('tinkerforge');
-const {name} = require('./get-name');
+const { BrickMaster, BrickRED, BrickletAccelerometerV2 } = require('tinkerforge');
+const { name } = require('./get-name');
 
 test('Brick Master', t => {
 	t.is(name(BrickMaster.DEVICE_IDENTIFIER), BrickMaster.DEVICE_DISPLAY_NAME);

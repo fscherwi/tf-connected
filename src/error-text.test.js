@@ -1,6 +1,6 @@
 const test = require('ava');
 
-const {errorText} = require('./error-text.js');
+const { errorText } = require('./error-text.js');
 
 test('Error Code 11', t => {
 	t.is(errorText(11), 'ALREADY CONNECTED');

@@ -50,7 +50,11 @@
     "rules": {
       "unicorn/no-process-exit": 0,
       "unicorn/prefer-ternary": 0,
-      "max-params": 0
+      "max-params": 0,
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
     },
     "extends": [
       "plugin:jsdoc/recommended"
