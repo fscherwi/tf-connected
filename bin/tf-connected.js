@@ -11,8 +11,10 @@ program
 	.option('-p, --port [port]', 'The PORT, default to "4223"')
 	.parse(process.argv);
 
-if (!program.port || (program.port >= 0 && program.port < 65536)) {
-	require('../src/connected').list(program.host, program.port, program.advanced, program.table);
+const options = program.opts();
+
+if (!options.port || (options.port >= 0 && options.port < 65536)) {
+	require('../src/connected').list(options.host, options.port, options.advanced, options.table);
 } else {
 	console.error('\nPlease check your inserted PORT\n');
 	process.exit(1);
