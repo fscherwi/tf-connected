@@ -10,8 +10,8 @@ const { argv } = yargs.options({
 	port: { type: 'number', default: 4223, description: 'The PORT' }
 });
 
-if (argv.port < 0 || argv.port > 65536) {
-	console.error('\nError: check your inserted PORT\n');
+if (argv.port < 0 || argv.port >= 65536) {
+	console.error('\nError: PORT should be >= 0 and < 65536\n');
 	process.exit(1);
 }
 
