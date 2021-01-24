@@ -85,7 +85,7 @@ function tfgetTable(ipcon, advanced) {
  * @param {boolean} advanced Show advanced informations
  * @param {boolean} tableOutput Show as table
  */
-module.exports.list = async (host = 'localhost', port = 4223, advanced = false, tableOutput = false) => {
+module.exports.list = async (host, port, advanced, tableOutput) => {
 	const ipcon = tfinit(host, port);
 	if (tableOutput) {
 		const data = await tfgetTable(ipcon, advanced);

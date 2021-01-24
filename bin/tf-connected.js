@@ -1,21 +1,18 @@
 #!/usr/bin/env node
 
-const program = require('commander');
+const yargs = require('yargs');
+const conncected = require('../src/connected');
 
-program
-	.version(require('../package.json').version)
-	.usage('[options]')
-	.option('-a, --advanced', 'Show advanced informations')
-	.option('-t, --table', 'Show output as a table')
-	.option('-h, --host [host]', 'The HOST, default to "localhost"')
-	.option('-p, --port [port]', 'The PORT, default to "4223"')
-	.parse(process.argv);
+const { argv } = yargs.options({
+	advanced: { type: 'boolean', default: false, description: 'Show advanced informations' },
+	table: { type: 'boolean', default: false, description: 'Show output as a table' },
+	host: { type: 'string', default: 'localhost', description: 'The HOST' },
+	port: { type: 'number', default: 4223, description: 'The PORT' }
+});
 
-const options = program.opts();
-
-if (!options.port || (options.port >= 0 && options.port < 65536)) {
-	require('../src/connected').list(options.host, options.port, options.advanced, options.table);
-} else {
-	console.error('\nPlease check your inserted PORT\n');
+if (argv.port < 0 || argv.port > 65536) {
+	console.error('\nError: check your inserted PORT\n');
 	process.exit(1);
 }
+
+conncected.list(argv.host, argv.port, argv.advanced, argv.table);
