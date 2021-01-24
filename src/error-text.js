@@ -1,13 +1,13 @@
-const Tinkerforge = require('tinkerforge');
+const { IPConnection } = require('tinkerforge');
 
 const errors = [
-	{ code: Tinkerforge.IPConnection.ERROR_ALREADY_CONNECTED, message: 'ALREADY CONNECTED' },
-	{ code: Tinkerforge.IPConnection.ERROR_NOT_CONNECTED, message: 'NOT CONNECTED' },
-	{ code: Tinkerforge.IPConnection.ERROR_CONNECT_FAILED, message: 'CONNECT FAILED' },
-	{ code: Tinkerforge.IPConnection.ERROR_INVALID_FUNCTION_ID, message: 'INVALID FUNCTION ID' },
-	{ code: Tinkerforge.IPConnection.ERROR_TIMEOUT, message: 'TIMEOUT' },
-	{ code: Tinkerforge.IPConnection.ERROR_INVALID_PARAMETER, message: 'INVALID PARAMETER' },
-	{ code: Tinkerforge.IPConnection.ERROR_FUNCTION_NOT_SUPPORTED, message: 'FUNCTION NOT SUPPORTED' }
+	{ code: IPConnection.ERROR_ALREADY_CONNECTED, message: 'ALREADY CONNECTED' },
+	{ code: IPConnection.ERROR_NOT_CONNECTED, message: 'NOT CONNECTED' },
+	{ code: IPConnection.ERROR_CONNECT_FAILED, message: 'CONNECT FAILED' },
+	{ code: IPConnection.ERROR_INVALID_FUNCTION_ID, message: 'INVALID FUNCTION ID' },
+	{ code: IPConnection.ERROR_TIMEOUT, message: 'TIMEOUT' },
+	{ code: IPConnection.ERROR_INVALID_PARAMETER, message: 'INVALID PARAMETER' },
+	{ code: IPConnection.ERROR_FUNCTION_NOT_SUPPORTED, message: 'FUNCTION NOT SUPPORTED' }
 ];
 
 /**

@@ -1,4 +1,4 @@
-const Tinkerforge = require('tinkerforge');
+const { IPConnection } = require('tinkerforge');
 const { table } = require('table');
 const replaceString = require('replace-string');
 const { name } = require('./get-name');
@@ -13,12 +13,12 @@ const { errorText } = require('./error-text');
  */
 function tfinit(host, port) {
 	console.log('\nUsed HOST: %s\nUsed PORT: %s\n', host, port);
-	const ipcon = new Tinkerforge.IPConnection();
+	const ipcon = new IPConnection();
 	ipcon.connect(host, port, error => {
 		console.error('Error: %s\n', errorText(error));
 		process.exit();
 	});
-	ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED, () => {
+	ipcon.on(IPConnection.CALLBACK_CONNECTED, () => {
 		ipcon.enumerate();
 	});
 	return ipcon;
@@ -34,7 +34,7 @@ function tfinit(host, port) {
 function tfgetList(ipcon, advanced) {
 	return new Promise(resolve => {
 		let connectedList = '';
-		ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
+		ipcon.on(IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 			if (advanced) {
 				connectedList += 'Name:              ' + name(deviceIdentifier) + '\n' +
 					'UID:               ' + uid + '\n' +
@@ -65,12 +65,12 @@ function tfgetTable(ipcon, advanced) {
 		const data = [];
 		if (advanced) {
 			data.push(['Name', 'UID', 'Enumeration Type', 'Connected UID', 'Position', 'Hardware Version', 'Firmware Version', 'Device Identifier']);
-			ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
+			ipcon.on(IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 				data.push([name(deviceIdentifier), uid, enumerationType, connectedUid, position, replaceString(hardwareVersion.toString(), ',', '.'), replaceString(firmwareVersion.toString(), ',', '.'), deviceIdentifier]);
 			});
 		} else {
 			data.push(['Name', 'UID']);
-			ipcon.on(Tinkerforge.IPConnection.CALLBACK_ENUMERATE, (uid, _connectedUid, _position, _hardwareVersion, _firmwareVersion, deviceIdentifier) => {
+			ipcon.on(IPConnection.CALLBACK_ENUMERATE, (uid, _connectedUid, _position, _hardwareVersion, _firmwareVersion, deviceIdentifier) => {
 				data.push([name(deviceIdentifier), uid]);
 			});
 		}

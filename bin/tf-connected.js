@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs');
-const conncected = require('../src/connected');
+const { list } = require('../src/connected.js');
 
 const { argv } = yargs.options({
 	advanced: { type: 'boolean', default: false, description: 'Show advanced informations' },
@@ -15,4 +15,4 @@ if (argv.port < 0 || argv.port > 65536) {
 	process.exit(1);
 }
 
-conncected.list(argv.host, argv.port, argv.advanced, argv.table);
+list(argv.host, argv.port, argv.advanced, argv.table);
