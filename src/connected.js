@@ -31,7 +31,7 @@ function tfinit(host, port) {
  * @param {boolean} advanced Show advanced informations
  * @returns {string} Informations as String
  */
-function tfgetList(ipcon, advanced) {
+async function tfgetList(ipcon, advanced) {
 	return new Promise(resolve => {
 		let connectedList = '';
 		ipcon.on(IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
@@ -60,7 +60,7 @@ function tfgetList(ipcon, advanced) {
  * @param {boolean} advanced Show advanced informations
  * @returns {string[]} Information as Array
  */
-function tfgetTable(ipcon, advanced) {
+async function tfgetTable(ipcon, advanced) {
 	return new Promise(resolve => {
 		const data = [];
 		if (advanced) {
@@ -87,13 +87,14 @@ function tfgetTable(ipcon, advanced) {
  */
 module.exports.list = async (host, port, advanced, tableOutput) => {
 	const ipcon = tfinit(host, port);
+
 	if (tableOutput) {
 		const data = await tfgetTable(ipcon, advanced);
-		ipcon.disconnect();
 		console.log(table(data));
 	} else {
 		const connectedList = await tfgetList(ipcon, advanced);
-		ipcon.disconnect();
 		console.log(connectedList);
 	}
+
+	ipcon.disconnect();
 };

@@ -25,16 +25,16 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "replace-string": "^3.1.0",
-    "table": "^6.0.7",
-    "tinkerforge": "^2.1.32",
-    "yargs": "^16.2.0"
+    "table": "^6.7.0",
+    "tinkerforge": "^2.1.33",
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "ava": "^3.15.0",
     "coveralls": "^3.1.0",
-    "eslint-plugin-jsdoc": "^32.2.0",
+    "eslint-plugin-jsdoc": "^34.0.0",
     "nyc": "^15.1.0",
-    "xo": "^0.38.2"
+    "xo": "^0.40.0"
   },
   "preferGlobal": true,
   "bin": {
@@ -54,7 +54,8 @@
       "object-curly-spacing": [
         "error",
         "always"
-      ]
+      ],
+      "unicorn/prefer-module": 0
     },
     "extends": [
       "plugin:jsdoc/recommended"

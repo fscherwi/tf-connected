@@ -16,5 +16,5 @@ test('Bricklet Accelerometer V2', t => {
 });
 
 test('unknown Brick/Bricklet name', t => {
-	t.is(name(123321), 'unknown');
+	t.is(name(123_321), 'unknown');
 });
