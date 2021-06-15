@@ -1,8 +1,8 @@
 const { IPConnection } = require('tinkerforge');
 const { table } = require('table');
 const replaceString = require('replace-string');
-const { name } = require('./get-name');
-const { errorText } = require('./error-text');
+const { name } = require('./get-name.js');
+const { errorText } = require('./error-text.js');
 
 /**
  * Initialize Tinkerforge Connection
