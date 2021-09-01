@@ -34,7 +34,7 @@
     "coveralls": "^3.1.0",
     "eslint-plugin-jsdoc": "^35.2.0",
     "nyc": "^15.1.0",
-    "xo": "^0.40.2"
+    "xo": "^0.44.0"
   },
   "preferGlobal": true,
   "bin": {
