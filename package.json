@@ -31,9 +31,7 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
-    "coveralls": "^3.1.0",
     "eslint-plugin-jsdoc": "^35.2.0",
-    "nyc": "^15.1.0",
     "xo": "^0.40.2"
   },
   "preferGlobal": true,
