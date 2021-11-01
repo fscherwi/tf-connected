@@ -32,7 +32,7 @@
   "devDependencies": {
     "ava": "^3.15.0",
     "eslint-plugin-jsdoc": "^37.0.3",
-    "xo": "^0.40.2"
+    "xo": "^0.45.0"
   },
   "preferGlobal": true,
   "bin": {
@@ -53,7 +53,8 @@
         "error",
         "always"
       ],
-      "unicorn/prefer-module": 0
+      "unicorn/prefer-module": 0,
+      "comma-dangle": 0
     },
     "extends": [
       "plugin:jsdoc/recommended"

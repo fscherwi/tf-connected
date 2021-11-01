@@ -1,3 +1,4 @@
+const process = require('process');
 const { IPConnection } = require('tinkerforge');
 const { table } = require('table');
 const replaceString = require('replace-string');
@@ -36,14 +37,14 @@ async function tfgetList(ipcon, advanced) {
 		let connectedList = '';
 		ipcon.on(IPConnection.CALLBACK_ENUMERATE, (uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) => {
 			if (advanced) {
-				connectedList += 'Name:              ' + name(deviceIdentifier) + '\n' +
-					'UID:               ' + uid + '\n' +
-					'Enumeration Type:  ' + enumerationType + '\n' +
-					'Connected UID:     ' + connectedUid + '\n' +
-					'Position:          ' + position + '\n' +
-					'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n' +
-					'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n' +
-					'Device Identifier: ' + deviceIdentifier + '\n\n';
+				connectedList += 'Name:              ' + name(deviceIdentifier) + '\n'
+					+ 'UID:               ' + uid + '\n'
+					+ 'Enumeration Type:  ' + enumerationType + '\n'
+					+ 'Connected UID:     ' + connectedUid + '\n'
+					+ 'Position:          ' + position + '\n'
+					+ 'Hardware Version:  ' + replaceString(hardwareVersion.toString(), ',', '.') + '\n'
+					+ 'Firmware Version:  ' + replaceString(firmwareVersion.toString(), ',', '.') + '\n'
+					+ 'Device Identifier: ' + deviceIdentifier + '\n\n';
 			} else {
 				connectedList += 'Name: ' + name(deviceIdentifier) + '\nUID:  ' + uid + '\n\n';
 			}

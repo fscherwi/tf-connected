@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const process = require('process');
 const yargs = require('yargs');
 const { list } = require('../src/connected.js');
 
