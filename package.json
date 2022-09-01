@@ -30,7 +30,7 @@
     "yargs": "^17.4.1"
   },
   "devDependencies": {
-    "ava": "^4.3.1",
+    "ava": "^4.3.3",
     "eslint-plugin-jsdoc": "^39.3.6",
     "xo": "^0.51.0"
   },
