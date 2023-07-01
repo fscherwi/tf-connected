@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "ava": "^5.3.0",
-    "eslint-plugin-jsdoc": "^46.1.0",
+    "eslint-plugin-jsdoc": "^46.4.3",
     "xo": "^0.52.4"
   },
   "preferGlobal": true,
