@@ -1,5 +1,4 @@
 const test = require('ava');
-
 const { BrickMaster, BrickRED, BrickletAccelerometerV2 } = require('tinkerforge');
 const { name } = require('./get-name.js');
 

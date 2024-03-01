@@ -12,7 +12,6 @@ const errors = [
 
 /**
  * Get the error text
- *
  * @param {number} code error code
  * @returns {string} error text
  */
