@@ -1,4 +1,4 @@
-const process = require('process');
+const process = require('node:process');
 const { IPConnection } = require('tinkerforge');
 const { table } = require('table');
 const replaceString = require('replace-string');
@@ -7,7 +7,6 @@ const { errorText } = require('./error-text.js');
 
 /**
  * Initialize Tinkerforge Connection
- *
  * @param {string} host Tinkerforge connection HOST
  * @param {number} port Tinkerforge connection PORT
  * @returns {object} Tinkerforge IP Connection
@@ -27,7 +26,6 @@ function tfinit(host, port) {
 
 /**
  * Get Information from the connected Bricks/Bricklets
- *
  * @param {object} ipcon Tinkerforge IP Connection
  * @param {boolean} advanced Show advanced informations
  * @returns {string} Informations as String
@@ -56,7 +54,6 @@ async function tfgetList(ipcon, advanced) {
 
 /**
  * Get Information from the connected Bricks/Bricklets
- *
  * @param {object} ipcon Tinkerforge IP Connection
  * @param {boolean} advanced Show advanced informations
  * @returns {string[]} Information as Array

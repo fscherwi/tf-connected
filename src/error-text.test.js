@@ -1,5 +1,4 @@
 const test = require('ava');
-
 const { errorText } = require('./error-text.js');
 
 test('Error Code 11', t => {
