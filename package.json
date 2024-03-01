@@ -26,7 +26,7 @@
   "dependencies": {
     "replace-string": "^4.0.0",
     "table": "^6.8.1",
-    "tinkerforge": "^2.1.34",
+    "tinkerforge": "^2.1.35",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
