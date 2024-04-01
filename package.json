@@ -25,7 +25,7 @@
   "homepage": "https://github.com/fscherwi/tf-connected/blob/master/README.md",
   "dependencies": {
     "replace-string": "^4.0.0",
-    "table": "^6.8.1",
+    "table": "^6.8.2",
     "tinkerforge": "^2.1.35",
     "yargs": "^17.7.2"
   },
