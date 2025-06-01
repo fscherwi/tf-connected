@@ -27,7 +27,7 @@
     "replace-string": "^4.0.0",
     "table": "^6.9.0",
     "tinkerforge": "^2.1.35",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "ava": "^6.2.0",
