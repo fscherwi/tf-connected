@@ -32,7 +32,7 @@
   "devDependencies": {
     "ava": "^6.2.0",
     "eslint-plugin-jsdoc": "^50.6.9",
-    "xo": "^0.58.0"
+    "xo": "^1.1.1"
   },
   "preferGlobal": true,
   "bin": {
